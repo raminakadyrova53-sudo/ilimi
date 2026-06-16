@@ -233,28 +233,32 @@
 </div>
 
 <script>
-    // ======================== FIREBASE CONFIG (ВАШИ ДАННЫЕ) ========================
+    // ======================== FIREBASE CONFIG ========================
+    // ⚠️ ЗАМЕНИТЕ НА ВАШИ ДАННЫЕ ИЗ КОНСОЛИ FIREBASE ⚠️
     const firebaseConfig = {
-        apiKey: "AIzaSyCs4aeDbtJNbhDeyntvmZsfukGW_4Hpdz0",
-        authDomain: "ilimi-safe.firebaseapp.com",
-        projectId: "ilimi-safe",
-        storageBucket: "ilimi-safe.firebasestorage.app",
-        messagingSenderId: "376357464726",
-        appId: "1:376357464726:web:9c75caf5879c212774b0b7",
-        measurementId: "G-ZM17WLGW71"
+        apiKey: "ВАШ_API_KEY",
+        authDomain: "ВАШ_ПРОЕКТ.firebaseapp.com",
+        projectId: "ВАШ_ПРОЕКТ",
+        storageBucket: "ВАШ_ПРОЕКТ.appspot.com",
+        messagingSenderId: "ВАШ_ID",
+        appId: "ВАШ_APP_ID"
     };
-    // Инициализация Firebase
+    
+    // Инициализация
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
     const storage = firebase.storage();
     const auth = firebase.auth();
 
     // ======================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ========================
-    let products = [];
-    let currentUser = null;
-    let cart = [];
-    let orders = [];
-    let reviews = [];
+    let products = [];          // будет заполняться из Firestore
+    let currentUser = null;    // объект { username, email, phone, address, avatar, isAdmin, uid }
+    let cart = [];             // корзина только локально, сохраняется в сессии (или можно в Firestore? оставим локально)
+    let orders = [];           // из Firestore
+    let reviews = [];          // из Firestore
+    let privateMessages = {};  // сообщения по username, подгружаются динамически
+    let productComments = {};  // комментарии к товарам, подгружаются по productId
+    let messageReadStatus = {}; // статус прочтения (хранится в сессии или в localStorage, но для простоты оставим локально)
     
     let currentCategory = "Корпусные десерты";
     const categories = ["Десерты", "Напитки", "Корпусные десерты", "Макаруны", "Мороженое"];
@@ -266,16 +270,18 @@
     let menuSearchQuery = "";
     let debounceTimer = null;
     
-    // Вспомогательные функции
+    // Отключение localStorage данных, теперь всё из Firebase
     function getShortId(fullId) { return fullId.slice(-5); }
     function escapeHtml(str) { return String(str).replace(/[&<>]/g, m => m==='&'?'&amp;':m==='<'?'&lt;':'&gt;'); }
     
+    // ======================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ========================
     function updateCartCount() { 
         let badge = document.getElementById("floatingCartCount");
         if(badge) badge.innerText = cart.reduce((s,i)=>s+i.quantity,0);
         localStorage.setItem("ilimi_cart_session", JSON.stringify(cart));
     }
     
+    // Загрузка корзины из sessionStorage
     function loadCartFromSession() {
         let saved = localStorage.getItem("ilimi_cart_session");
         if(saved) cart = JSON.parse(saved);
@@ -283,17 +289,19 @@
         updateCartCount();
     }
     
+    // Сохранение корзины в sessionStorage (не в облако)
     function saveCartSession() {
         localStorage.setItem("ilimi_cart_session", JSON.stringify(cart));
     }
     
-    // Подписки на данные Firebase
+    // ======================== ЗАГРУЗКА ДАННЫХ ИЗ FIRESTORE В РЕАЛЬНОМ ВРЕМЕНИ ========================
     function subscribeToProducts() {
         db.collection("products").onSnapshot(snapshot => {
             products = [];
             snapshot.forEach(doc => {
                 products.push({ id: doc.id, ...doc.data() });
             });
+            // Если меню открыто, обновить
             if (currentPage === "menu") renderMenu();
             if (currentUser && currentUser.isAdmin && currentAdminTab === "products") renderAdminPanel();
         });
@@ -311,7 +319,10 @@
                 orders.push({ id: doc.id, ...doc.data() });
             });
             if (currentPage === "orders") renderUserOrders();
-            if (currentUser && currentUser.isAdmin && currentAdminTab === "orders") renderAdminPanel();
+            if (currentUser && currentUser.isAdmin) {
+                if (currentAdminTab === "orders") renderAdminPanel();
+                updateAdminOrderBadge();
+            }
             updateOrderStatusBar();
         });
     }
@@ -326,9 +337,46 @@
         });
     }
     
-    // Авторизация
+    // Подписка на комментарии к товарам (для модального окна)
+    function subscribeToProductComments(productId, callback) {
+        return db.collection("productComments").doc(productId).collection("comments").orderBy("date", "asc").onSnapshot(snapshot => {
+            let comments = [];
+            snapshot.forEach(doc => comments.push({ id: doc.id, ...doc.data() }));
+            callback(comments);
+        });
+    }
+    
+    // Подписка на чат конкретного пользователя (для админа или пользователя)
+    function subscribeToChat(chatId, isAdminSide, callback) {
+        return db.collection("privateMessages").doc(chatId).collection("messages").orderBy("time", "asc").onSnapshot(snapshot => {
+            let messages = [];
+            snapshot.forEach(doc => messages.push({ id: doc.id, ...doc.data() }));
+            callback(messages);
+            // Отметить прочтение
+            markMessagesRead(chatId, isAdminSide);
+        });
+    }
+    
+    async function markMessagesRead(chatId, isAdmin) {
+        const messagesRef = db.collection("privateMessages").doc(chatId).collection("messages");
+        let unreadQuery;
+        if (isAdmin) {
+            unreadQuery = messagesRef.where("readByAdmin", "==", false).where("from", "!=", "ilimi_admin");
+        } else {
+            unreadQuery = messagesRef.where("readByUser", "==", false).where("from", "==", "ilimi_admin");
+        }
+        const snap = await unreadQuery.get();
+        const batch = db.batch();
+        snap.forEach(doc => {
+            batch.update(doc.ref, isAdmin ? { readByAdmin: true } : { readByUser: true });
+        });
+        await batch.commit();
+    }
+    
+    // ======================== АВТОРИЗАЦИЯ ========================
     async function login(username, password) {
         try {
+            // Ищем пользователя в коллекции users по username
             const userQuery = await db.collection("users").where("username", "==", username).get();
             if (userQuery.empty) { alert("Пользователь не найден"); return false; }
             const userDoc = userQuery.docs[0];
@@ -343,10 +391,13 @@
                 avatar: userData.avatar,
                 isAdmin: userData.isAdmin || false
             };
+            // Сохраняем сессию в localStorage для простоты
             localStorage.setItem("ilimi_current_user", JSON.stringify({ uid: currentUser.uid }));
             closeModal('authModal');
             menuSearchQuery = "";
+            // Загружаем корзину
             loadCartFromSession();
+            // Подписываемся на данные
             subscribeToOrders();
             updateUI();
             updateOrderStatusBar();
@@ -356,8 +407,10 @@
     
     async function register(username, password, email, phone) {
         try {
+            // Проверка уникальности username
             const existing = await db.collection("users").where("username", "==", username).get();
             if (!existing.empty) { alert("Логин уже существует"); return false; }
+            // Создаём документ пользователя
             const newUserRef = db.collection("users").doc();
             await newUserRef.set({
                 username, password, email, phone,
@@ -378,10 +431,10 @@
         updateUI();
         updateOrderStatusBar();
         alert("Вы вышли");
-        location.reload();
+        location.reload(); // перезагрузка для сброса подписок
     }
     
-    // UI
+    // ======================== ОСНОВНЫЕ ФУНКЦИИ ПРИЛОЖЕНИЯ ========================
     function updateUI() {
         const navLinks = document.getElementById("navLinks");
         const floatingCart = document.getElementById("floatingCart");
@@ -413,6 +466,7 @@
             floatingCart.style.display = currentUser ? "flex" : "none";
             if (userChatWidget) userChatWidget.style.display = currentUser ? "block" : "none";
             renderPage();
+            if (currentUser) updateUserChatUnread();
         }
         updateCartCount();
         if(document.querySelectorAll(".nav-links a").length)
@@ -425,7 +479,7 @@
         else if (currentPage === "reviews") renderReviews();
     }
     
-    function renderMenu() {
+    async function renderMenu() {
         let searchHtml = `<div class="search-bar"><input type="text" id="menuSearchInput" placeholder="🔍 Поиск по меню..." oninput="filterMenuDebounced()" value="${menuSearchQuery.replace(/"/g, '&quot;')}" autocomplete="off"></div>`;
         let tabs = `<div class="categories-tabs">${categories.map(c => `<button class="category-tab ${currentCategory===c?'active':''}" data-category="${c}">${c}</button>`).join('')}</div>`;
         let filteredByCat = products.filter(p => p.category === currentCategory);
@@ -571,20 +625,18 @@
     
     async function openProductDetail(pid) {
         let p = products.find(p=>p.id===pid);
-        if(!p) return;
         let modal = document.createElement('div');
         modal.className = 'modal';
         modal.style.display = 'flex';
         modal.innerHTML = `<div class="modal-content"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><img src="${p.image}" style="width:100%;height:180px;object-fit:cover;border-radius:20px;"><h2>${p.name}</h2><p>💰 ${p.price}₽ | 🔥 ${p.calories}</p><p>${p.description}</p><p>🥄 ${p.composition}</p><button class="btn" onclick="addToCart('${p.id}');this.closest('.modal').remove()">В корзину</button><div style="margin-top:20px;"><h3>💬 Комментарии</h3><div id="commentsList"></div><textarea id="commentText" placeholder="Ваш комментарий..." rows="2"></textarea><button class="btn" onclick="addProductComment('${pid}')">Отправить</button></div></div>`;
         document.body.appendChild(modal);
-        // Загружаем комментарии из подколлекции
-        const commentsSnapshot = await db.collection("productComments").doc(pid).collection("comments").orderBy("date", "asc").get();
-        const comments = [];
-        commentsSnapshot.forEach(doc => comments.push(doc.data()));
-        const commentsDiv = document.getElementById("commentsList");
-        if (commentsDiv) {
-            commentsDiv.innerHTML = comments.map(c => `<div style="background:var(--cream); border-radius:16px; padding:12px; margin-bottom:10px;"><b>${c.author}</b> <small>${new Date(c.date).toLocaleString()}</small><div>${c.text}</div></div>`).join('') || '<p>Нет комментариев</p>';
-        }
+        // Подписка на комментарии
+        subscribeToProductComments(pid, (comments) => {
+            const commentsDiv = document.getElementById("commentsList");
+            if (commentsDiv) {
+                commentsDiv.innerHTML = comments.map(c => `<div style="background:var(--cream); border-radius:16px; padding:12px; margin-bottom:10px;"><b>${c.author}</b> <small>${new Date(c.date).toLocaleString()}</small><div>${c.text}</div></div>`).join('') || '<p>Нет комментариев</p>';
+            }
+        });
     }
     
     async function addProductComment(productId) {
@@ -598,11 +650,9 @@
         });
         document.getElementById("commentText").value = "";
         alert("Комментарий добавлен");
-        // Обновить комментарии в модалке
-        openProductDetail(productId);
     }
     
-    // Админ-панель
+    // АДМИН-ПАНЕЛЬ (упрощённо, но с сохранением в Firestore)
     async function renderAdminPanel() {
         const main = document.getElementById("mainContent");
         if (currentAdminTab === "orders") {
@@ -617,7 +667,7 @@
             document.getElementById("addProductTabBtn").onclick = () => { currentProductsSubTab = "add"; renderAdminPanel(); };
             document.getElementById("editProductTabBtn").onclick = () => { currentProductsSubTab = "edit"; renderAdminPanel(); };
             document.getElementById("adminProductList").innerHTML = products.map(p => `<div class="product-edit-card"><div class="flex-between"><img src="${p.image}" style="width:50px;height:50px;border-radius:10px;object-fit:cover;"><div><strong>${p.name}</strong><br>${p.price}₽</div><button onclick="editProduct('${p.id}')" class="btn" style="width:auto;padding:6px 14px;">✏️</button><button onclick="deleteProduct('${p.id}')" class="btn" style="width:auto;padding:6px 14px;background:#999;">🗑️</button></div></div>`).join('');
-            
+            // Обработка добавления товара с загрузкой фото в Storage
             let uploadedFile = null;
             const imageInput = document.getElementById("adminImageFile");
             if (imageInput) imageInput.onchange = e => { uploadedFile = e.target.files[0]; if(uploadedFile) document.getElementById("imagePreview").innerHTML = `<img src="${URL.createObjectURL(uploadedFile)}" style="max-width:150px;border-radius:12px; margin-top:8px;">`; };
@@ -625,6 +675,7 @@
             if (addBtn) addBtn.onclick = async () => {
                 let name = document.getElementById("adminName")?.value.trim();
                 if (!name || !uploadedFile) { alert("Название и фото обязательны"); return; }
+                // Загружаем фото в Storage
                 const storageRef = storage.ref(`products/${Date.now()}_${uploadedFile.name}`);
                 await storageRef.put(uploadedFile);
                 const imageUrl = await storageRef.getDownloadURL();
@@ -641,7 +692,7 @@
                 renderAdminPanel();
             };
         } else if (currentAdminTab === "chats") {
-            main.innerHTML = `<div class="admin-panel-container"><h2><i class="fas fa-comments"></i> Чаты с клиентами</h2><div id="adminChatPlaceholder">Выберите пользователя из списка заказов</div></div>`;
+            renderChatsPanel(main);
         }
     }
     
@@ -663,7 +714,13 @@
         }
     }
     
+    function renderChatsPanel(main) {
+        main.innerHTML = `<div class="admin-panel-container"><h2><i class="fas fa-comments"></i> Чаты с клиентами</h2><div id="adminChatPlaceholder">Выберите пользователя из списка заказов</div></div>`;
+        // Для простоты чаты открываются через кнопку в заказах
+    }
+    
     window.openChatWithUser = async (userId) => {
+        // Открыть модальное окно чата с конкретным пользователем
         let chatId = userId;
         let modal = document.createElement('div');
         modal.className = 'modal';
@@ -671,13 +728,10 @@
         modal.innerHTML = `<div class="modal-content" style="max-width:600px;"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><h3>Чат с пользователем</h3><div id="chatMessagesList" style="height:300px; overflow-y:auto; background:#f9f3e9; padding:10px; border-radius:20px;"></div><div class="chat-input-area-admin"><input type="text" id="adminChatMsg" placeholder="Сообщение..."><button id="sendChatMsgBtn" class="btn">Отправить</button></div></div>`;
         document.body.appendChild(modal);
         // Подписка на сообщения
-        const messagesRef = db.collection("privateMessages").doc(chatId).collection("messages").orderBy("time", "asc");
-        const unsubscribe = messagesRef.onSnapshot(snapshot => {
+        let unsubscribe = subscribeToChat(chatId, true, (messages) => {
             const container = document.getElementById("chatMessagesList");
             if (container) {
-                let msgs = [];
-                snapshot.forEach(doc => msgs.push(doc.data()));
-                container.innerHTML = msgs.map(msg => {
+                container.innerHTML = messages.map(msg => {
                     const isMy = msg.from === "ilimi_admin";
                     return `<div class="chat-message ${isMy ? 'my' : 'other'}"><div class="message-sender">${isMy ? 'Вы' : msg.from}</div><div class="message-bubble">${escapeHtml(msg.text)}</div><div class="message-time">${new Date(msg.time).toLocaleString()}</div></div>`;
                 }).join('');
@@ -699,6 +753,7 @@
         modal.onclose = () => unsubscribe();
     };
     
+    // Функции для пользовательского чата
     async function sendUserMessage() {
         if (!currentUser) return;
         let input = document.getElementById("userChatInput");
@@ -718,18 +773,19 @@
         if (!currentUser) return;
         const container = document.getElementById("userChatMessages");
         if (!container) return;
-        db.collection("privateMessages").doc(currentUser.uid).collection("messages").orderBy("time", "asc").onSnapshot(snapshot => {
-            let msgs = [];
-            snapshot.forEach(doc => msgs.push(doc.data()));
-            container.innerHTML = msgs.map(msg => {
+        subscribeToChat(currentUser.uid, false, (messages) => {
+            container.innerHTML = messages.map(msg => {
                 const isMy = msg.from === currentUser.username;
                 const sender = isMy ? "Вы" : "👑 Администратор";
                 return `<div class="chat-message ${isMy ? 'my' : 'other'}"><div class="message-sender">${sender}</div><div class="message-bubble">${escapeHtml(msg.text)}</div><div class="message-time">${new Date(msg.time).toLocaleString()}</div></div>`;
             }).join('');
             container.scrollTop = container.scrollHeight;
+            updateUserChatUnread();
         });
     }
     
+    function updateUserChatUnread() { /* можно реализовать через отдельный слушатель */ }
+    function updateAdminOrderBadge() {}
     function updateOrderStatusBar() {
         if (!currentUser || currentUser.isAdmin) return;
         const activeOrder = orders.find(o => o.userId === currentUser.uid && o.status !== "Доставлен" && o.status !== "Отменён");
@@ -744,7 +800,7 @@
     function closeModal(id) { document.getElementById(id).style.display = "none"; }
     window.togglePassword = (id) => { let inp = document.getElementById(id); inp.type = inp.type === "password" ? "text" : "password"; };
     
-    // Инициализация
+    // Инициализация после сплеша
     document.getElementById("goToShopBtn").addEventListener("click", async () => {
         let splash = document.getElementById("splashScreen");
         if (splash) {
@@ -754,6 +810,7 @@
     });
     
     async function initApp() {
+        // Проверяем, есть ли сохранённый пользователь
         const saved = localStorage.getItem("ilimi_current_user");
         if (saved) {
             try {
@@ -774,10 +831,13 @@
             } catch(e) {}
         }
         loadCartFromSession();
+        // Подписки
         subscribeToProducts();
-        if (currentUser) subscribeToOrders();
+        if (currentUser) {
+            subscribeToOrders();
+        }
         subscribeToReviews();
-        
+        // Навешиваем обработчики UI
         document.getElementById("floatingCart").onclick = () => renderCartModal();
         document.getElementById("checkoutBtn").onclick = checkout;
         document.getElementById("editAddressBtn").onclick = () => {
