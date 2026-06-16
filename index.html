@@ -43,19 +43,17 @@
         .nav-links a.active { background: linear-gradient(135deg, #8b5a3c, #6b3e24); color: white; transform: translateY(-2px); }
         .search-bar { margin: 20px 0 15px; display: flex; justify-content: center; }
         .search-bar input { width: 100%; max-width: 450px; padding: 12px 20px; border-radius: 60px; border: none; background: white; font-size: 0.9rem; box-shadow: 0 6px 16px rgba(0,0,0,0.08); font-weight: 500; color: #2c1810; }
-        .floating-cart { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #8b5a3c, #6b3e24); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 28px rgba(0,0,0,0.25); z-index: 200; border: 2px solid white; transition: all 0.2s; }
-        .floating-cart:active { transform: scale(0.95); }
+        .floating-cart { position: fixed; bottom: 20px; right: 20px; width: 56px; height: 56px; background: linear-gradient(135deg, #8b5a3c, #6b3e24); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 28px rgba(0,0,0,0.25); z-index: 200; border: 2px solid white; }
         .cart-badge { position: absolute; top: -5px; right: -5px; background: linear-gradient(135deg, #ecc1cd, #e8b5c4); color: var(--dark-cacao); border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: bold; border: 2px solid white; }
         .chat-widget { position: fixed; bottom: 20px; left: 20px; z-index: 200; }
-        .chat-toggle { width: 60px; height: 60px; background: linear-gradient(135deg, #ecc1cd, #e0b5c4); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px rgba(0,0,0,0.15); position: relative; transition: all 0.2s; }
-        .chat-toggle:active { transform: scale(0.95); }
+        .chat-toggle { width: 56px; height: 56px; background: linear-gradient(135deg, #ecc1cd, #e0b5c4); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 12px 24px rgba(0,0,0,0.15); position: relative; }
         .chat-toggle.has-new-message { background: linear-gradient(135deg, #e74c3c, #c0392b); animation: pulse 0.8s infinite; }
         .chat-toggle.has-new-message i { color: white; }
         .chat-unread-badge { position: absolute; top: -5px; right: -5px; background: #e74c3c; color: white; border-radius: 50%; min-width: 22px; height: 22px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; border: 2px solid white; padding: 0 5px; }
-        .chat-window { display: none; position: absolute; bottom: 75px; left: 0; width: 320px; background: white; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid var(--latte); z-index: 300; }
+        .chat-window { display: none; position: absolute; bottom: 70px; left: 0; width: 320px; background: white; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; border: 1px solid var(--latte); z-index: 300; }
         @media (max-width: 480px) { .chat-window { width: 290px; left: -15px; } }
         .chat-header { background: linear-gradient(135deg, #8b5a3c, #6b3e24); color: white; padding: 12px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
-        .chat-messages { height: 300px; overflow-y: auto; padding: 12px; background: var(--cream); display: flex; flex-direction: column; }
+        .chat-messages { height: 300px; overflow-y: auto; padding: 12px; background: var(--cream); }
         .chat-input-area { display: flex; padding: 10px; background: white; border-top: 1px solid var(--latte); gap: 8px; }
         .chat-input-area input { flex: 1; padding: 10px; border: 1px solid var(--latte); border-radius: 60px; font-family: 'Montserrat'; background: var(--cream); font-size: 0.85rem; margin: 0; }
         .chat-input-area button { width: auto; padding: 10px 16px; margin: 0; }
@@ -68,8 +66,8 @@
         .product-img { height: 150px; background-size: cover; background-position: center; background-repeat: no-repeat; }
         .product-info { padding: 12px; }
         .product-info strong { font-size: 0.9rem; display: block; margin-bottom: 5px; }
-        .btn { background: linear-gradient(135deg, #8b5a3c, #6b3e24); border: none; padding: 10px 16px; border-radius: 60px; color: white; font-weight: 700; cursor: pointer; width: 100%; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
-        .btn:active { transform: translateY(1px); }
+        .btn { background: linear-gradient(135deg, #8b5a3c, #6b3e24); border: none; padding: 10px 16px; border-radius: 60px; color: white; font-weight: 700; cursor: pointer; width: 100%; font-size: 0.85rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15); text-transform: uppercase; letter-spacing: 1px; }
+        .btn:hover { transform: translateY(-2px); }
         input, textarea, select { width: 100%; padding: 12px 16px; margin: 8px 0; border: none; border-radius: 60px; font-family: 'Montserrat'; background: white; font-size: 0.85rem; box-shadow: 0 2px 6px rgba(0,0,0,0.05); color: #2c1810; }
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.75); justify-content: center; align-items: center; z-index: 1050; backdrop-filter: blur(8px); }
         .modal-content { background: white; max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto; border-radius: 32px; padding: 24px; position: relative; box-shadow: 0 40px 60px rgba(0,0,0,0.3); }
@@ -81,12 +79,10 @@
         .status-Отменён { background: #f5cccc; color: #c0392b; }
         .profile-card { background: white; border-radius: 32px; padding: 20px; margin-bottom: 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
         .profile-info-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--latte); flex-wrap: wrap; gap: 8px; }
-        .profile-info-label { font-weight: 700; color: #5a3e2a; }
-        .profile-info-value { background: var(--cream); padding: 4px 12px; border-radius: 40px; word-break: break-word; }
-        .profile-edit-btn { background: var(--beige); border: none; padding: 4px 12px; border-radius: 40px; cursor: pointer; font-weight: 600; font-size: 0.75rem; }
+        .profile-info-value { background: var(--cream); padding: 4px 12px; border-radius: 40px; }
         .order-card, .cart-item { background: var(--cream); border-radius: 20px; padding: 12px; margin-bottom: 12px; border: 1px solid rgba(226,208,189,0.5); }
         .cart-item-controls { display: flex; align-items: center; gap: 10px; }
-        .cart-item-controls button { width: 32px; height: 32px; border-radius: 50%; border: none; background: linear-gradient(135deg, #f2e6d8, #e8dac8); cursor: pointer; font-size: 1rem; }
+        .cart-item-controls button { width: 32px; height: 32px; border-radius: 50%; border: none; background: linear-gradient(135deg, #f2e6d8, #e8dac8); cursor: pointer; }
         .orders-table-container { background: white; border-radius: 20px; overflow-x: auto; margin-bottom: 20px; }
         .orders-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; min-width: 600px; }
         .orders-table th { background: linear-gradient(135deg, #5a3e2a, #4a3020); color: white; padding: 8px; text-align: left; }
@@ -99,16 +95,16 @@
         .chat-messages-area { flex: 1; background: white; border-radius: 24px; display: flex; flex-direction: column; overflow: hidden; margin-top: 15px; }
         .chat-messages-header { background: linear-gradient(135deg, #8b5a3c, #6b3e24); color: white; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
         .chat-clear-btn { background: rgba(255,255,255,0.2); border: none; color: white; padding: 4px 10px; border-radius: 30px; cursor: pointer; font-size: 0.7rem; }
-        .chat-messages-list { flex: 1; padding: 12px; overflow-y: auto; max-height: 400px; background: var(--cream); display: flex; flex-direction: column; }
-        .chat-message { margin-bottom: 16px; display: flex; flex-direction: column; max-width: 80%; }
-        .chat-message.my { align-self: flex-end; }
-        .chat-message.other { align-self: flex-start; }
-        .chat-message .message-bubble { padding: 8px 14px; border-radius: 18px; font-size: 0.85rem; word-wrap: break-word; }
-        .chat-message.my .message-bubble { background: linear-gradient(135deg, #8b5a3c, #6b3e24); color: white; border-radius: 18px 18px 5px 18px; }
-        .chat-message.other .message-bubble { background: white; color: #333; border-radius: 18px 18px 18px 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .chat-messages-list { flex: 1; padding: 12px; overflow-y: auto; max-height: 400px; background: var(--cream); }
+        .chat-message { margin-bottom: 16px; display: flex; flex-direction: column; }
+        .chat-message.admin { align-items: flex-end; }
+        .chat-message.user { align-items: flex-start; }
+        .chat-message .message-bubble { max-width: 75%; padding: 8px 14px; border-radius: 18px; font-size: 0.85rem; word-wrap: break-word; }
+        .chat-message.admin .message-bubble { background: linear-gradient(135deg, #8b5a3c, #6b3e24); color: white; border-radius: 18px 18px 5px 18px; }
+        .chat-message.user .message-bubble { background: white; color: #333; border-radius: 18px 18px 18px 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
         .chat-message .message-sender { font-size: 0.7rem; font-weight: bold; margin-bottom: 3px; color: #666; }
-        .chat-message.my .message-sender { text-align: right; color: #e0b5c4; }
-        .chat-message.other .message-sender { text-align: left; color: var(--cacao); }
+        .chat-message.admin .message-sender { text-align: right; color: #e0b5c4; }
+        .chat-message.user .message-sender { text-align: left; color: var(--cacao); }
         .message-time { font-size: 0.65rem; color: #999; margin-top: 4px; display: flex; justify-content: flex-end; gap: 8px; }
         .message-read-status { font-size: 0.65rem; color: #4caf50; margin-left: 8px; }
         .chat-input-area-admin { display: flex; gap: 8px; padding: 12px; background: white; border-top: 1px solid var(--latte); flex-wrap: wrap; }
@@ -171,14 +167,7 @@
         .star { font-size: 1.5rem; color: #ddd; cursor: pointer; transition: 0.2s; }
         .star.active { color: #ffc107; }
         .stars { display: inline-flex; gap: 5px; }
-        .password-wrapper { position: relative; display: flex; align-items: center; gap: 8px; }
-        .password-toggle { background: none; border: none; cursor: pointer; color: #999; font-size: 1.2rem; padding: 0 8px; }
     </style>
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
 </head>
 <body>
 
@@ -233,34 +222,8 @@
 </div>
 
 <script>
-    // ======================== FIREBASE CONFIG ========================
-    // ⚠️ ЗАМЕНИТЕ НА ВАШИ ДАННЫЕ ИЗ КОНСОЛИ FIREBASE ⚠️
-    const firebaseConfig = {
-        apiKey: "ВАШ_API_KEY",
-        authDomain: "ВАШ_ПРОЕКТ.firebaseapp.com",
-        projectId: "ВАШ_ПРОЕКТ",
-        storageBucket: "ВАШ_ПРОЕКТ.appspot.com",
-        messagingSenderId: "ВАШ_ID",
-        appId: "ВАШ_APP_ID"
-    };
-    
-    // Инициализация
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
-    const storage = firebase.storage();
-    const auth = firebase.auth();
-
-    // ======================== ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ========================
-    let products = [];          // будет заполняться из Firestore
-    let currentUser = null;    // объект { username, email, phone, address, avatar, isAdmin, uid }
-    let cart = [];             // корзина только локально, сохраняется в сессии (или можно в Firestore? оставим локально)
-    let orders = [];           // из Firestore
-    let reviews = [];          // из Firestore
-    let privateMessages = {};  // сообщения по username, подгружаются динамически
-    let productComments = {};  // комментарии к товарам, подгружаются по productId
-    let messageReadStatus = {}; // статус прочтения (хранится в сессии или в localStorage, но для простоты оставим локально)
-    
-    let currentCategory = "Корпусные десерты";
+    let products = [], currentUser = null, cart = [], orders = [], reviews = [], privateMessages = {}, productComments = {}, messageReadStatus = {};
+    let currentCategory = "Десерты";
     const categories = ["Десерты", "Напитки", "Корпусные десерты", "Макаруны", "Мороженое"];
     let currentAdminTab = "orders";
     let currentPage = "menu";
@@ -269,299 +232,202 @@
     let currentChatUser = null;
     let menuSearchQuery = "";
     let debounceTimer = null;
-    
-    // Отключение localStorage данных, теперь всё из Firebase
+
     function getShortId(fullId) { return fullId.slice(-5); }
     function escapeHtml(str) { return String(str).replace(/[&<>]/g, m => m==='&'?'&amp;':m==='<'?'&lt;':'&gt;'); }
     
-    // ======================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ========================
+    function getUsersDB() {
+        let users = localStorage.getItem("ilimi_users_db");
+        if (!users) {
+            const initialUsers = [
+                { username: "ilimi_admin", password: "ilimi2024", email: "admin@ilimi.ru", phone: "+79227663689", address: "", avatar: null, isAdmin: true },
+                { username: "anna", password: "anna123", email: "anna@example.com", phone: "+79001234567", address: "", avatar: null, isAdmin: false },
+                { username: "maria", password: "maria123", email: "maria@example.com", phone: "+79001234568", address: "", avatar: null, isAdmin: false }
+            ];
+            localStorage.setItem("ilimi_users_db", JSON.stringify(initialUsers));
+            return initialUsers;
+        }
+        return JSON.parse(users);
+    }
+    function getSavedUsers() { let saved = localStorage.getItem("ilimi_saved_users"); return saved ? JSON.parse(saved) : []; }
+    function saveSavedUsers(users) { localStorage.setItem("ilimi_saved_users", JSON.stringify(users)); }
+    function addSavedUser(username, password) { let saved = getSavedUsers(); if (!saved.find(u => u.username === username)) { saved.push({ username, password }); saveSavedUsers(saved); } }
+    function saveUsersDB(users) { localStorage.setItem("ilimi_users_db", JSON.stringify(users)); }
+    function isUsernameUnique(username) { return !getUsersDB().some(u => u.username.toLowerCase() === username.toLowerCase()); }
+    function findUserByCredentials(username, password) { return getUsersDB().find(u => u.username === username && u.password === password) || null; }
+    function findUserByContact(contact) { return getUsersDB().find(u => u.email === contact || u.phone === contact); }
+    function registerUser(username, password, email, phone) {
+        if (!username || !password) { alert("Логин и пароль обязательны!"); return false; }
+        if (!isUsernameUnique(username)) { alert("Такой пользователь уже существует!"); return false; }
+        const users = getUsersDB();
+        users.push({ username, password, email: email || "", phone: phone || "", address: "", avatar: null, isAdmin: false });
+        saveUsersDB(users);
+        addSavedUser(username, password);
+        currentUser = { username, password, email, phone, address: "", avatar: null, isAdmin: false };
+        saveAll();
+        return true;
+    }
+
+    function loadData() {
+        let p = localStorage.getItem("ilimi_products");
+        if(p) products = JSON.parse(p);
+        else products = [
+            { id: "p1", name: "Медовик", category: "Корпусные десерты", description: "Традиционный медовый торт", composition: "Мёд, сметана, яйца, мука", calories: "450 ккал", variants: [{weight:"кусок", price:320}], image: "https://placehold.co/600x400/f2e6d8/8b5a3c?text=🍰+Медовик" },
+            { id: "p2", name: "Малиновый мусс", category: "Корпусные десерты", description: "Нежный малиновый муссовый торт", composition: "Малина, сливки, йогурт, желатин", calories: "310 ккал", variants: [{weight:"порция", price:450}], image: "https://placehold.co/600x400/f2e6d8/8b5a3c?text=🍰+Малиновый+мусс" },
+            { id: "p3", name: "Эклер с заварным кремом", category: "Десерты", description: "Классический французский эклер", composition: "Заварное тесто, заварной крем", calories: "280 ккал", variants: [{weight:"шт", price:150}], image: "https://placehold.co/600x400/f2e6d8/8b5a3c?text=🍩+Эклер" },
+            { id: "p4", name: "Капучино", category: "Напитки", description: "Ароматный кофе с молочной пенкой", composition: "Кофе, молоко", calories: "120 ккал", variants: [{weight:"250мл", price:180}], image: "https://placehold.co/600x400/f2e6d8/8b5a3c?text=☕+Капучино" },
+            { id: "p5", name: "Макаруны (набор 6шт)", category: "Макаруны", description: "Нежные французские макаруны", composition: "Миндальная мука, белок, сахар, крем", calories: "420 ккал", variants: [{weight:"набор", price:650}], image: "https://placehold.co/600x400/f2e6d8/8b5a3c?text=🍪+Макаруны" },
+            { id: "p6", name: "Пломбир ванильный", category: "Мороженое", description: "Классическое ванильное мороженое", composition: "Сливки, молоко, сахар, ваниль", calories: "210 ккал", variants: [{weight:"шарик", price:120}], image: "https://placehold.co/600x400/f2e6d8/8b5a3c?text=🍦+Пломбир" }
+        ];
+        cart = JSON.parse(localStorage.getItem("ilimi_cart") || "[]");
+        orders = JSON.parse(localStorage.getItem("ilimi_orders") || "[]");
+        reviews = JSON.parse(localStorage.getItem("ilimi_reviews") || "[]");
+        privateMessages = JSON.parse(localStorage.getItem("ilimi_private_messages") || "{}");
+        productComments = JSON.parse(localStorage.getItem("ilimi_product_comments") || "{}");
+        messageReadStatus = JSON.parse(localStorage.getItem("ilimi_msg_read") || "{}");
+        
+        let savedUser = localStorage.getItem("ilimi_current_user");
+        if(savedUser && savedUser !== "null") {
+            try { const parsed = JSON.parse(savedUser); const users = getUsersDB(); const exists = users.find(u => u.username === parsed.username); if(exists) currentUser = { ...exists }; else currentUser = null; } catch(e) { currentUser = null; }
+        } else { currentUser = null; }
+        
+        for(let chatId in privateMessages) {
+            privateMessages[chatId].forEach(msg => {
+                if(msg.readByUser === undefined) msg.readByUser = false;
+                if(msg.readByAdmin === undefined) msg.readByAdmin = false;
+            });
+        }
+        updateUI(); updateCartCount(); updateOrderStatusBar();
+    }
+    
+    function saveAll() {
+        localStorage.setItem("ilimi_products", JSON.stringify(products));
+        localStorage.setItem("ilimi_cart", JSON.stringify(cart));
+        localStorage.setItem("ilimi_orders", JSON.stringify(orders));
+        localStorage.setItem("ilimi_reviews", JSON.stringify(reviews));
+        localStorage.setItem("ilimi_private_messages", JSON.stringify(privateMessages));
+        localStorage.setItem("ilimi_product_comments", JSON.stringify(productComments));
+        localStorage.setItem("ilimi_msg_read", JSON.stringify(messageReadStatus));
+        if(currentUser) localStorage.setItem("ilimi_current_user", JSON.stringify({ username: currentUser.username }));
+        else localStorage.removeItem("ilimi_current_user");
+        updateUserChatUnread(); updateAdminChatIndicator(); updateUserChatButtonIndicator(); updateOrderStatusBar();
+    }
+    
+    function updateOrderStatusBar() {
+        const bar = document.getElementById("orderStatusBar");
+        if(!bar) return;
+        if(!currentUser || currentUser.isAdmin) { bar.style.display = "none"; return; }
+        const activeOrder = orders.filter(o => o.userId === currentUser.username && o.status !== "Доставлен" && o.status !== "Отменён").sort((a,b)=> new Date(b.date) - new Date(a.date))[0];
+        if(activeOrder) {
+            bar.innerHTML = activeOrder.status === "Принят" ? "⏳ Ваш заказ принят, скоро начнём готовить!" : "👩‍🍳 Ваш заказ готовится! Скоро передадим курьеру.";
+            bar.className = `order-status-bar ${activeOrder.status}`;
+            bar.style.display = "block";
+        } else bar.style.display = "none";
+    }
+    
+    function updateAdminChatIndicator() {
+        const btn = document.querySelector('.admin-nav-btn[data-tab="chats"]');
+        if(btn && currentUser?.isAdmin) {
+            let unread = getUnreadChatsCount();
+            if(unread > 0) btn.classList.add('has-new-message');
+            else btn.classList.remove('has-new-message');
+        }
+    }
+    function updateUserChatButtonIndicator() {
+        const toggle = document.getElementById("userChatToggle");
+        if(toggle && currentUser && !currentUser.isAdmin) {
+            let unread = getUserUnreadCount();
+            if(unread > 0) toggle.classList.add('has-new-message');
+            else toggle.classList.remove('has-new-message');
+        }
+    }
+    function getUserUnreadCount() {
+        if(!currentUser || currentUser.isAdmin) return 0;
+        let msgs = privateMessages[currentUser.username] || [];
+        let lastRead = messageReadStatus[`${currentUser.username}_user_read`] || 0;
+        return msgs.filter(m => m.from === "ilimi_admin" && m.time > lastRead).length;
+    }
+    function getUnreadChatsCount() {
+        let count = 0;
+        const users = getUsersDB().filter(u => !u.isAdmin);
+        for(let user of users) {
+            let msgs = privateMessages[user.username] || [];
+            let lastRead = messageReadStatus[`${user.username}_admin_read`] || 0;
+            if(msgs.filter(m => m.from !== "ilimi_admin" && m.time > lastRead).length > 0) count++;
+        }
+        return count;
+    }
+    function updateUserChatUnread() {
+        let unread = getUserUnreadCount();
+        let indicator = document.getElementById("userChatUnread");
+        if(indicator) {
+            if(unread > 0) { indicator.style.display = "flex"; indicator.innerText = unread > 9 ? '9+' : unread; }
+            else indicator.style.display = "none";
+        }
+        updateUserChatButtonIndicator();
+    }
+    
+    function markMessagesAsRead(chatId, isAdmin = false) {
+        let msgs = privateMessages[chatId];
+        if(!msgs) return;
+        let changed = false;
+        for(let msg of msgs) {
+            if(isAdmin && msg.from !== "ilimi_admin" && !msg.readByAdmin) {
+                msg.readByAdmin = true;
+                changed = true;
+            } else if(!isAdmin && msg.from === "ilimi_admin" && !msg.readByUser) {
+                msg.readByUser = true;
+                changed = true;
+            }
+        }
+        if(changed) {
+            saveAll();
+            if(currentUser?.isAdmin && currentAdminTab === 'chats' && currentChatUser === chatId) {
+                renderChatMessagesOnly(chatId);
+            } else if(!currentUser?.isAdmin && document.getElementById("userChatWindow")?.style.display === "block") {
+                loadUserChatMessages();
+            }
+        }
+        let readKey = isAdmin ? `${chatId}_admin_read` : `${chatId}_user_read`;
+        messageReadStatus[readKey] = Date.now();
+        saveAll();
+    }
+    
+    function renderChatMessagesOnly(username) {
+        const messagesContainer = document.getElementById("adminChatMessagesList");
+        if(!messagesContainer) return;
+        let msgs = privateMessages[username] || [];
+        messagesContainer.innerHTML = msgs.map(msg => {
+            let isAdmin = msg.from === "ilimi_admin";
+            let senderName = isAdmin ? "👑 Администратор" : username;
+            let isRead = isAdmin ? (msg.readByUser === true) : (msg.readByAdmin === true);
+            return `<div class="chat-message ${isAdmin ? 'admin' : 'user'}">
+                        <div class="message-sender">${senderName}</div>
+                        <div class="message-bubble">${escapeHtml(msg.text)}</div>
+                        <div class="message-time">${msg.date} ${isRead ? '<span class="message-read-status">✓ прочитано</span>' : ''}</div>
+                    </div>`;
+        }).join('');
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+    
     function updateCartCount() { 
         let badge = document.getElementById("floatingCartCount");
         if(badge) badge.innerText = cart.reduce((s,i)=>s+i.quantity,0);
-        localStorage.setItem("ilimi_cart_session", JSON.stringify(cart));
     }
-    
-    // Загрузка корзины из sessionStorage
-    function loadCartFromSession() {
-        let saved = localStorage.getItem("ilimi_cart_session");
-        if(saved) cart = JSON.parse(saved);
-        else cart = [];
-        updateCartCount();
+    function addToCart(pid) { 
+        if(currentUser?.isAdmin) return; 
+        let p=products.find(p=>p.id===pid); 
+        let exist=cart.find(i=>i.productId===pid); 
+        if(exist) exist.quantity++; 
+        else cart.push({productId:pid,name:p.name,variantWeight:p.variants[0].weight,variantPrice:p.variants[0].price,quantity:1}); 
+        saveAll(); renderMenu(); updateCartCount(); 
     }
-    
-    // Сохранение корзины в sessionStorage (не в облако)
-    function saveCartSession() {
-        localStorage.setItem("ilimi_cart_session", JSON.stringify(cart));
+    function updateCartItem(idx,op) { 
+        if(op==="inc") cart[idx].quantity++; 
+        else if(op==="dec") { if(cart[idx].quantity>1) cart[idx].quantity--; else cart.splice(idx,1); } 
+        else cart.splice(idx,1); 
+        saveAll(); renderCartModal(); renderMenu(); updateCartCount(); 
     }
-    
-    // ======================== ЗАГРУЗКА ДАННЫХ ИЗ FIRESTORE В РЕАЛЬНОМ ВРЕМЕНИ ========================
-    function subscribeToProducts() {
-        db.collection("products").onSnapshot(snapshot => {
-            products = [];
-            snapshot.forEach(doc => {
-                products.push({ id: doc.id, ...doc.data() });
-            });
-            // Если меню открыто, обновить
-            if (currentPage === "menu") renderMenu();
-            if (currentUser && currentUser.isAdmin && currentAdminTab === "products") renderAdminPanel();
-        });
-    }
-    
-    function subscribeToOrders() {
-        if (!currentUser) return;
-        let query = db.collection("orders");
-        if (!currentUser.isAdmin) {
-            query = query.where("userId", "==", currentUser.uid);
-        }
-        query.onSnapshot(snapshot => {
-            orders = [];
-            snapshot.forEach(doc => {
-                orders.push({ id: doc.id, ...doc.data() });
-            });
-            if (currentPage === "orders") renderUserOrders();
-            if (currentUser && currentUser.isAdmin) {
-                if (currentAdminTab === "orders") renderAdminPanel();
-                updateAdminOrderBadge();
-            }
-            updateOrderStatusBar();
-        });
-    }
-    
-    function subscribeToReviews() {
-        db.collection("reviews").orderBy("date", "desc").onSnapshot(snapshot => {
-            reviews = [];
-            snapshot.forEach(doc => {
-                reviews.push({ id: doc.id, ...doc.data() });
-            });
-            if (currentPage === "reviews") renderReviews();
-        });
-    }
-    
-    // Подписка на комментарии к товарам (для модального окна)
-    function subscribeToProductComments(productId, callback) {
-        return db.collection("productComments").doc(productId).collection("comments").orderBy("date", "asc").onSnapshot(snapshot => {
-            let comments = [];
-            snapshot.forEach(doc => comments.push({ id: doc.id, ...doc.data() }));
-            callback(comments);
-        });
-    }
-    
-    // Подписка на чат конкретного пользователя (для админа или пользователя)
-    function subscribeToChat(chatId, isAdminSide, callback) {
-        return db.collection("privateMessages").doc(chatId).collection("messages").orderBy("time", "asc").onSnapshot(snapshot => {
-            let messages = [];
-            snapshot.forEach(doc => messages.push({ id: doc.id, ...doc.data() }));
-            callback(messages);
-            // Отметить прочтение
-            markMessagesRead(chatId, isAdminSide);
-        });
-    }
-    
-    async function markMessagesRead(chatId, isAdmin) {
-        const messagesRef = db.collection("privateMessages").doc(chatId).collection("messages");
-        let unreadQuery;
-        if (isAdmin) {
-            unreadQuery = messagesRef.where("readByAdmin", "==", false).where("from", "!=", "ilimi_admin");
-        } else {
-            unreadQuery = messagesRef.where("readByUser", "==", false).where("from", "==", "ilimi_admin");
-        }
-        const snap = await unreadQuery.get();
-        const batch = db.batch();
-        snap.forEach(doc => {
-            batch.update(doc.ref, isAdmin ? { readByAdmin: true } : { readByUser: true });
-        });
-        await batch.commit();
-    }
-    
-    // ======================== АВТОРИЗАЦИЯ ========================
-    async function login(username, password) {
-        try {
-            // Ищем пользователя в коллекции users по username
-            const userQuery = await db.collection("users").where("username", "==", username).get();
-            if (userQuery.empty) { alert("Пользователь не найден"); return false; }
-            const userDoc = userQuery.docs[0];
-            const userData = userDoc.data();
-            if (userData.password !== password) { alert("Неверный пароль"); return false; }
-            currentUser = {
-                uid: userDoc.id,
-                username: userData.username,
-                email: userData.email,
-                phone: userData.phone,
-                address: userData.address,
-                avatar: userData.avatar,
-                isAdmin: userData.isAdmin || false
-            };
-            // Сохраняем сессию в localStorage для простоты
-            localStorage.setItem("ilimi_current_user", JSON.stringify({ uid: currentUser.uid }));
-            closeModal('authModal');
-            menuSearchQuery = "";
-            // Загружаем корзину
-            loadCartFromSession();
-            // Подписываемся на данные
-            subscribeToOrders();
-            updateUI();
-            updateOrderStatusBar();
-            return true;
-        } catch(e) { alert("Ошибка входа: " + e.message); return false; }
-    }
-    
-    async function register(username, password, email, phone) {
-        try {
-            // Проверка уникальности username
-            const existing = await db.collection("users").where("username", "==", username).get();
-            if (!existing.empty) { alert("Логин уже существует"); return false; }
-            // Создаём документ пользователя
-            const newUserRef = db.collection("users").doc();
-            await newUserRef.set({
-                username, password, email, phone,
-                address: "", avatar: null,
-                isAdmin: false,
-                createdAt: firebase.firestore.FieldValue.serverTimestamp()
-            });
-            await login(username, password);
-            return true;
-        } catch(e) { alert("Ошибка регистрации: " + e.message); return false; }
-    }
-    
-    function logout() {
-        currentUser = null;
-        localStorage.removeItem("ilimi_current_user");
-        localStorage.removeItem("ilimi_cart_session");
-        cart = [];
-        updateUI();
-        updateOrderStatusBar();
-        alert("Вы вышли");
-        location.reload(); // перезагрузка для сброса подписок
-    }
-    
-    // ======================== ОСНОВНЫЕ ФУНКЦИИ ПРИЛОЖЕНИЯ ========================
-    function updateUI() {
-        const navLinks = document.getElementById("navLinks");
-        const floatingCart = document.getElementById("floatingCart");
-        const userChatWidget = document.getElementById("userChatWidget");
-        const adminNavContainer = document.getElementById("adminNavContainer");
-        document.getElementById("userNameDisplay").innerText = currentUser ? currentUser.username : "Войти";
-        document.getElementById("userAvatar").src = currentUser?.avatar || "https://placehold.co/100x100/f2e6d8/8b5a3c?text=👤";
-        
-        if (currentUser?.isAdmin) {
-            adminNavContainer.style.display = "block";
-            const adminNav = document.getElementById("adminNavButtons");
-            adminNav.innerHTML = `<button class="admin-nav-btn ${currentAdminTab === 'orders' ? 'active' : ''}" data-tab="orders"><i class="fas fa-truck-fast"></i> ЗАКАЗЫ</button>
-                                   <button class="admin-nav-btn ${currentAdminTab === 'products' ? 'active' : ''}" data-tab="products"><i class="fas fa-cake-candles"></i> ТОВАРЫ</button>
-                                   <button class="admin-nav-btn ${currentAdminTab === 'chats' ? 'active' : ''}" data-tab="chats"><i class="fas fa-comments"></i> ЧАТЫ</button>`;
-            document.querySelectorAll(".admin-nav-btn").forEach(btn => {
-                btn.onclick = () => {
-                    currentAdminTab = btn.dataset.tab;
-                    updateUI();
-                    renderAdminPanel();
-                };
-            });
-            if (navLinks) navLinks.style.display = "none";
-            floatingCart.style.display = "none";
-            if (userChatWidget) userChatWidget.style.display = "none";
-            renderAdminPanel();
-        } else {
-            adminNavContainer.style.display = "none";
-            if (navLinks) navLinks.style.display = "flex";
-            floatingCart.style.display = currentUser ? "flex" : "none";
-            if (userChatWidget) userChatWidget.style.display = currentUser ? "block" : "none";
-            renderPage();
-            if (currentUser) updateUserChatUnread();
-        }
-        updateCartCount();
-        if(document.querySelectorAll(".nav-links a").length)
-            document.querySelectorAll(".nav-links a").forEach(link => link.classList.toggle("active", link.dataset.page === currentPage));
-    }
-    
-    function renderPage() {
-        if (currentPage === "menu") renderMenu();
-        else if (currentPage === "orders") renderUserOrders();
-        else if (currentPage === "reviews") renderReviews();
-    }
-    
-    async function renderMenu() {
-        let searchHtml = `<div class="search-bar"><input type="text" id="menuSearchInput" placeholder="🔍 Поиск по меню..." oninput="filterMenuDebounced()" value="${menuSearchQuery.replace(/"/g, '&quot;')}" autocomplete="off"></div>`;
-        let tabs = `<div class="categories-tabs">${categories.map(c => `<button class="category-tab ${currentCategory===c?'active':''}" data-category="${c}">${c}</button>`).join('')}</div>`;
-        let filteredByCat = products.filter(p => p.category === currentCategory);
-        let filteredBySearch = filteredByCat.filter(p => p.name.toLowerCase().includes(menuSearchQuery.toLowerCase()));
-        let grid = `<div class="menu-grid">${filteredBySearch.map(p => `<div class="product-card" onclick="openProductDetail('${p.id}')"><div class="product-img" style="background-image: url('${p.image}');"></div><div class="product-info"><div><strong>${p.name}</strong></div><div>${p.price}₽</div><button class="btn" onclick="event.stopPropagation(); addToCart('${p.id}')">В корзину</button></div></div>`).join('')}</div>`;
-        if(filteredBySearch.length === 0) grid = '<p style="text-align:center;padding:40px;">😢 Ничего не найдено</p>';
-        document.getElementById("mainContent").innerHTML = searchHtml + tabs + grid;
-        let searchInput = document.getElementById("menuSearchInput");
-        if(searchInput) searchInput.value = menuSearchQuery;
-        document.querySelectorAll(".category-tab").forEach(btn => btn.onclick = () => { currentCategory = btn.dataset.category; renderMenu(); });
-    }
-    
-    function addToCart(pid) {
-        if (!currentUser || currentUser.isAdmin) { alert("Войдите как клиент"); return; }
-        let p = products.find(p => p.id === pid);
-        let exist = cart.find(i => i.productId === pid);
-        if (exist) exist.quantity++;
-        else cart.push({ productId: pid, name: p.name, variantWeight: "стандарт", variantPrice: p.price, quantity: 1 });
-        saveCartSession();
-        renderMenu();
-        updateCartCount();
-    }
-    
-    async function checkout() {
-        if (!currentUser) { alert("Войдите"); document.getElementById("authModal").style.display = "flex"; return; }
-        let addr = currentUser.address;
-        if (!addr) { alert("Укажите адрес в личном кабинете"); return; }
-        if (cart.length === 0) { alert("Корзина пуста"); return; }
-        let total = cart.reduce((s,i) => s + i.variantPrice * i.quantity, 0);
-        let orderData = {
-            userId: currentUser.uid,
-            userName: currentUser.username,
-            items: cart,
-            total: total,
-            address: addr,
-            status: "Принят",
-            date: new Date().toISOString(),
-            viewed: false
-        };
-        await db.collection("orders").add(orderData);
-        cart = [];
-        saveCartSession();
-        updateCartCount();
-        closeModal('cartModal');
-        alert("✅ Заказ оформлен!");
-        renderPage();
-        updateOrderStatusBar();
-    }
-    
-    async function renderUserOrders() {
-        if (!currentUser) { document.getElementById("mainContent").innerHTML = '<p>Войдите в аккаунт</p>'; return; }
-        let userOrders = orders.filter(o => o.userId === currentUser.uid);
-        let html = `<h2 style="margin-bottom:20px;">📋 Мои заказы</h2>${userOrders.map(o => `<div class="order-card" onclick="showOrderDetail('${o.id}')"><div class="flex-between"><b>${getShortId(o.id)}</b> <span class="status-badge status-${o.status}">${o.status}</span></div>📅 ${new Date(o.date).toLocaleString()}<br>💰 ${o.total}₽<br><button class="repeat-order-btn" onclick="event.stopPropagation(); repeatOrder('${o.id}')">🔄 Повторить заказ</button></div>`).join('') || '<p>У вас пока нет заказов</p>'}`;
-        document.getElementById("mainContent").innerHTML = html;
-    }
-    
-    function showOrderDetail(orderId) {
-        const order = orders.find(o => o.id === orderId);
-        if (!order) return;
-        let modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.style.display = 'flex';
-        modal.innerHTML = `<div class="modal-content"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><h3>📦 Заказ ${getShortId(order.id)}</h3><p><strong>Статус:</strong> <span class="status-badge status-${order.status}">${order.status}</span></p><p><strong>Дата:</strong> ${new Date(order.date).toLocaleString()}</p><p><strong>Адрес:</strong> ${order.address}</p><p><strong>Сумма:</strong> ${order.total}₽</p><h4>Состав:</h4>${order.items.map(i=>`<div>• ${i.name} x${i.quantity} = ${i.variantPrice*i.quantity}₽</div>`).join('')}<button class="repeat-order-btn" onclick="repeatOrder('${order.id}'); this.closest('.modal').remove();">🔄 Повторить заказ → в корзину</button><button class="btn" style="margin-top:10px;" onclick="this.closest('.modal').remove()">Закрыть</button></div>`;
-        document.body.appendChild(modal);
-    }
-    
-    async function repeatOrder(orderId) {
-        let order = orders.find(o => o.id === orderId);
-        if (order) {
-            cart = order.items.map(item => ({ ...item }));
-            saveCartSession();
-            alert("Товары добавлены в корзину!");
-            renderCartModal();
-            updateCartCount();
-            renderMenu();
-        }
-    }
-    
-    async function updateOrderStatus(orderId, newStatus) {
-        await db.collection("orders").doc(orderId).update({ status: newStatus });
-    }
-    
     function renderCartModal() {
         let total=0, html='';
         cart.forEach((i,idx)=>{ total+=i.variantPrice*i.quantity; html+=`<div class="cart-item"><div class="flex-between"><div><b>${i.name}</b></div><div class="cart-item-controls"><button onclick="updateCartItem(${idx},'dec')">-</button><span class="cart-item-count">${i.quantity}</span><button onclick="updateCartItem(${idx},'inc')">+</button><button onclick="updateCartItem(${idx},'del')"><i class="fas fa-trash-alt"></i></button></div></div><div>${i.variantPrice}₽ x ${i.quantity} = ${i.variantPrice*i.quantity}₽</div></div>`; });
@@ -571,358 +437,48 @@
         document.getElementById("addressInputDiv").style.display = "none";
         document.getElementById("cartModal").style.display="flex";
     }
-    
-    function updateCartItem(idx, op) {
-        if (op === "inc") cart[idx].quantity++;
-        else if (op === "dec") { if (cart[idx].quantity > 1) cart[idx].quantity--; else cart.splice(idx,1); }
-        else cart.splice(idx,1);
-        saveCartSession();
-        renderCartModal();
-        renderMenu();
-        updateCartCount();
+    function checkout() {
+        if(!currentUser||currentUser.isAdmin) { alert("Войдите"); document.getElementById("authModal").style.display="flex"; return; }
+        let addr = currentUser.address;
+        if(!addr){ alert("Укажите адрес"); document.getElementById("editAddressBtn").click(); return; }
+        if(cart.length===0) { alert("Корзина пуста"); return; }
+        let total=cart.reduce((s,i)=>s+i.variantPrice*i.quantity,0);
+        let id="ORD"+Date.now()+Math.random().toString(36).substr(2,3);
+        orders.unshift({id,date:new Date().toLocaleString(),items:[...cart],total,address:addr,status:"Принят",userId:currentUser.username, viewed: false});
+        saveAll(); cart=[]; saveAll(); closeModal('cartModal'); alert("✅ Заказ оформлен!"); renderPage(); updateUI();
     }
     
-    async function addReview(rating, text) {
-        if (!currentUser || currentUser.isAdmin) return;
-        await db.collection("reviews").add({
-            author: currentUser.username,
-            rating: rating,
-            text: text,
-            date: new Date().toISOString()
-        });
-    }
-    
-    function renderReviews() {
-        let starsHtml = `<div class="stars" id="reviewStars">${[1,2,3,4,5].map(v => `<span class="star" data-value="${v}">★</span>`).join('')}</div>`;
-        let html = `<div>${reviews.map(r => `<div class="review-card"><b>${r.author}</b> <small>${new Date(r.date).toLocaleString()}</small><div>${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div><div>${r.text}</div></div>`).join('') || '<p>Нет отзывов</p>'}</div><div style="margin-top:30px;"><h4>Оставить отзыв</h4>${starsHtml}<textarea id="reviewText" rows="3" placeholder="Ваш отзыв..."></textarea><button id="submitReviewBtn" class="btn">Отправить</button></div>`;
-        document.getElementById("mainContent").innerHTML = html;
-        let selectedRating = 0;
-        const starsContainer = document.getElementById("reviewStars");
-        if (starsContainer) {
-            const updateStarsUI = (rating) => {
-                const allStars = starsContainer.querySelectorAll('.star');
-                allStars.forEach(star => { if (parseInt(star.dataset.value) <= rating) star.classList.add('active'); else star.classList.remove('active'); });
-            };
-            starsContainer.addEventListener('click', (e) => {
-                const star = e.target.closest('.star');
-                if (star) { selectedRating = parseInt(star.dataset.value); updateStarsUI(selectedRating); }
-            });
-            updateStarsUI(0);
-        }
-        document.getElementById("submitReviewBtn").onclick = async () => {
-            if (!currentUser) alert("Войдите");
-            else if (currentUser.isAdmin) alert("Администратор не может оставлять отзывы");
-            else if (!selectedRating) alert("Поставьте оценку");
-            else {
-                let text = document.getElementById("reviewText").value.trim();
-                if (text) {
-                    await addReview(selectedRating, text);
-                    alert("Спасибо за отзыв!");
-                } else alert("Напишите текст");
-            }
-        };
-    }
-    
-    async function openProductDetail(pid) {
-        let p = products.find(p=>p.id===pid);
+    function showOrderDetail(order) {
         let modal = document.createElement('div');
         modal.className = 'modal';
         modal.style.display = 'flex';
-        modal.innerHTML = `<div class="modal-content"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><img src="${p.image}" style="width:100%;height:180px;object-fit:cover;border-radius:20px;"><h2>${p.name}</h2><p>💰 ${p.price}₽ | 🔥 ${p.calories}</p><p>${p.description}</p><p>🥄 ${p.composition}</p><button class="btn" onclick="addToCart('${p.id}');this.closest('.modal').remove()">В корзину</button><div style="margin-top:20px;"><h3>💬 Комментарии</h3><div id="commentsList"></div><textarea id="commentText" placeholder="Ваш комментарий..." rows="2"></textarea><button class="btn" onclick="addProductComment('${pid}')">Отправить</button></div></div>`;
+        modal.innerHTML = `<div class="modal-content"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><h3>📦 Заказ ${getShortId(order.id)}</h3><p><strong>Статус:</strong> <span class="status-badge status-${order.status}">${order.status}</span></p><p><strong>Дата:</strong> ${order.date}</p><p><strong>Адрес:</strong> ${order.address}</p><p><strong>Сумма:</strong> ${order.total}₽</p><h4>Состав:</h4>${order.items.map(i=>`<div>• ${i.name} x${i.quantity} = ${i.variantPrice*i.quantity}₽</div>`).join('')}<button class="repeat-order-btn" onclick="repeatOrderAndGoToCart('${order.id}'); this.closest('.modal').remove();">🔄 Повторить заказ → в корзину</button><button class="btn" style="margin-top:10px;" onclick="this.closest('.modal').remove()">Закрыть</button></div>`;
         document.body.appendChild(modal);
-        // Подписка на комментарии
-        subscribeToProductComments(pid, (comments) => {
-            const commentsDiv = document.getElementById("commentsList");
-            if (commentsDiv) {
-                commentsDiv.innerHTML = comments.map(c => `<div style="background:var(--cream); border-radius:16px; padding:12px; margin-bottom:10px;"><b>${c.author}</b> <small>${new Date(c.date).toLocaleString()}</small><div>${c.text}</div></div>`).join('') || '<p>Нет комментариев</p>';
-            }
-        });
     }
-    
-    async function addProductComment(productId) {
-        let text = document.getElementById("commentText")?.value.trim();
-        if (!text) { alert("Напишите комментарий"); return; }
-        if (!currentUser) { alert("Войдите"); return; }
-        await db.collection("productComments").doc(productId).collection("comments").add({
-            author: currentUser.username,
-            text: text,
-            date: new Date().toISOString()
-        });
-        document.getElementById("commentText").value = "";
-        alert("Комментарий добавлен");
-    }
-    
-    // АДМИН-ПАНЕЛЬ (упрощённо, но с сохранением в Firestore)
-    async function renderAdminPanel() {
-        const main = document.getElementById("mainContent");
-        if (currentAdminTab === "orders") {
-            let activeOrders = orders.filter(o => o.status !== "Доставлен" && o.status !== "Отменён");
-            let completedOrders = orders.filter(o => o.status === "Доставлен" || o.status === "Отменён");
-            let displayOrders = currentOrderFilter === "active" ? activeOrders : completedOrders;
-            main.innerHTML = `<div class="admin-panel-container"><div class="orders-layout"><div class="orders-sidebar"><button class="order-side-btn ${currentOrderFilter === 'active' ? 'active' : ''}" onclick="currentOrderFilter='active'; renderAdminPanel();">🟡 Активные (${activeOrders.length})</button><button class="order-side-btn ${currentOrderFilter === 'completed' ? 'active' : ''}" onclick="currentOrderFilter='completed'; renderAdminPanel();">✅ Выполненные (${completedOrders.length})</button></div><div class="orders-content"><div class="orders-table-container"><table class="orders-table"><thead><tr><th>№</th><th>Клиент</th><th>Дата</th><th>Товары</th><th>Сумма</th><th>Статус</th><th>Действие</th><th>Чат</th></tr></thead><tbody>${displayOrders.map(o => `<tr><td>${getShortId(o.id)}</td><td>${o.userName || o.userId}</td><td>${new Date(o.date).toLocaleString()}</td><td>${o.items.map(i=>`${i.name} x${i.quantity}`).join(', ')}</td><td><b>${o.total}₽</b></td><td><span class="status-badge status-${o.status}">${o.status}</span></td><td><select onchange="updateOrderStatus('${o.id}',this.value)"><option ${o.status==='Принят'?'selected':''}>Принят</option><option ${o.status==='Готовится'?'selected':''}>Готовится</option><option ${o.status==='Доставлен'?'selected':''}>Доставлен</option><option ${o.status==='Отменён'?'selected':''}>Отменён</option></select></td><td><button class="chat-link-btn" onclick="openChatWithUser('${o.userId}')"><i class="fas fa-comment"></i> Чат</button></td></tr>`).join('')}</tbody></table></div></div></div></div>`;
-        } else if (currentAdminTab === "products") {
-            main.innerHTML = `<div class="admin-panel-container"><div class="admin-tabs"><button id="addProductTabBtn" class="admin-tab-btn ${currentProductsSubTab === 'add' ? 'active' : ''}">➕ Добавление</button><button id="editProductTabBtn" class="admin-tab-btn ${currentProductsSubTab === 'edit' ? 'active' : ''}">✏️ Редактирование</button></div>
-            <div id="addProductSection" class="admin-section ${currentProductsSubTab === 'add' ? 'active' : ''}"><div style="background:var(--rose); padding:16px; border-radius:24px;"><h4>➕ Новое блюдо</h4><select id="adminCategory">${categories.map(c=>`<option>${c}</option>`).join('')}</select><input type="text" id="adminName" placeholder="Название"><textarea id="adminDesc" placeholder="Описание" rows="2"></textarea><input type="text" id="adminComposition" placeholder="Состав"><input type="text" id="adminCalories" placeholder="Калории"><input type="text" id="adminPriceDefault" placeholder="Цена"><input type="file" id="adminImageFile" accept="image/*"><div id="imagePreview"></div><button id="addProductBtn" class="btn">✅ Добавить</button></div></div>
-            <div id="editProductSection" class="admin-section ${currentProductsSubTab === 'edit' ? 'active' : ''}"><h4>✏️ Редактирование товаров</h4><div id="adminProductList"></div></div></div>`;
-            document.getElementById("addProductTabBtn").onclick = () => { currentProductsSubTab = "add"; renderAdminPanel(); };
-            document.getElementById("editProductTabBtn").onclick = () => { currentProductsSubTab = "edit"; renderAdminPanel(); };
-            document.getElementById("adminProductList").innerHTML = products.map(p => `<div class="product-edit-card"><div class="flex-between"><img src="${p.image}" style="width:50px;height:50px;border-radius:10px;object-fit:cover;"><div><strong>${p.name}</strong><br>${p.price}₽</div><button onclick="editProduct('${p.id}')" class="btn" style="width:auto;padding:6px 14px;">✏️</button><button onclick="deleteProduct('${p.id}')" class="btn" style="width:auto;padding:6px 14px;background:#999;">🗑️</button></div></div>`).join('');
-            // Обработка добавления товара с загрузкой фото в Storage
-            let uploadedFile = null;
-            const imageInput = document.getElementById("adminImageFile");
-            if (imageInput) imageInput.onchange = e => { uploadedFile = e.target.files[0]; if(uploadedFile) document.getElementById("imagePreview").innerHTML = `<img src="${URL.createObjectURL(uploadedFile)}" style="max-width:150px;border-radius:12px; margin-top:8px;">`; };
-            const addBtn = document.getElementById("addProductBtn");
-            if (addBtn) addBtn.onclick = async () => {
-                let name = document.getElementById("adminName")?.value.trim();
-                if (!name || !uploadedFile) { alert("Название и фото обязательны"); return; }
-                // Загружаем фото в Storage
-                const storageRef = storage.ref(`products/${Date.now()}_${uploadedFile.name}`);
-                await storageRef.put(uploadedFile);
-                const imageUrl = await storageRef.getDownloadURL();
-                await db.collection("products").add({
-                    name: name,
-                    category: document.getElementById("adminCategory")?.value,
-                    description: document.getElementById("adminDesc")?.value,
-                    composition: document.getElementById("adminComposition")?.value,
-                    calories: document.getElementById("adminCalories")?.value,
-                    price: parseInt(document.getElementById("adminPriceDefault")?.value) || 250,
-                    image: imageUrl
-                });
-                alert("Товар добавлен!");
-                renderAdminPanel();
-            };
-        } else if (currentAdminTab === "chats") {
-            renderChatsPanel(main);
-        }
-    }
-    
-    async function deleteProduct(productId) {
-        if (confirm("Удалить товар?")) {
-            await db.collection("products").doc(productId).delete();
-            alert("Удалено");
-        }
-    }
-    
-    async function editProduct(productId) {
-        const p = products.find(p=>p.id===productId);
-        if (!p) return;
-        let newName = prompt("Новое название", p.name);
-        let newPrice = prompt("Новая цена", p.price);
-        if (newName && newPrice) {
-            await db.collection("products").doc(productId).update({ name: newName, price: parseInt(newPrice) });
-            alert("Обновлено");
-        }
-    }
-    
-    function renderChatsPanel(main) {
-        main.innerHTML = `<div class="admin-panel-container"><h2><i class="fas fa-comments"></i> Чаты с клиентами</h2><div id="adminChatPlaceholder">Выберите пользователя из списка заказов</div></div>`;
-        // Для простоты чаты открываются через кнопку в заказах
-    }
-    
-    window.openChatWithUser = async (userId) => {
-        // Открыть модальное окно чата с конкретным пользователем
-        let chatId = userId;
-        let modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.style.display = 'flex';
-        modal.innerHTML = `<div class="modal-content" style="max-width:600px;"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><h3>Чат с пользователем</h3><div id="chatMessagesList" style="height:300px; overflow-y:auto; background:#f9f3e9; padding:10px; border-radius:20px;"></div><div class="chat-input-area-admin"><input type="text" id="adminChatMsg" placeholder="Сообщение..."><button id="sendChatMsgBtn" class="btn">Отправить</button></div></div>`;
-        document.body.appendChild(modal);
-        // Подписка на сообщения
-        let unsubscribe = subscribeToChat(chatId, true, (messages) => {
-            const container = document.getElementById("chatMessagesList");
-            if (container) {
-                container.innerHTML = messages.map(msg => {
-                    const isMy = msg.from === "ilimi_admin";
-                    return `<div class="chat-message ${isMy ? 'my' : 'other'}"><div class="message-sender">${isMy ? 'Вы' : msg.from}</div><div class="message-bubble">${escapeHtml(msg.text)}</div><div class="message-time">${new Date(msg.time).toLocaleString()}</div></div>`;
-                }).join('');
-                container.scrollTop = container.scrollHeight;
-            }
-        });
-        document.getElementById("sendChatMsgBtn").onclick = async () => {
-            let text = document.getElementById("adminChatMsg").value.trim();
-            if (!text) return;
-            await db.collection("privateMessages").doc(chatId).collection("messages").add({
-                from: "ilimi_admin",
-                text: text,
-                time: Date.now(),
-                readByAdmin: true,
-                readByUser: false
-            });
-            document.getElementById("adminChatMsg").value = "";
-        };
-        modal.onclose = () => unsubscribe();
+    window.repeatOrderAndGoToCart = (orderId) => {
+        let order = orders.find(o => o.id === orderId);
+        if(order) { cart = order.items.map(item => ({ ...item })); saveAll(); alert("Товары добавлены в корзину!"); renderCartModal(); updateCartCount(); renderMenu(); }
     };
-    
-    // Функции для пользовательского чата
-    async function sendUserMessage() {
-        if (!currentUser) return;
-        let input = document.getElementById("userChatInput");
-        let text = input?.value.trim();
-        if (!text) return;
-        await db.collection("privateMessages").doc(currentUser.uid).collection("messages").add({
-            from: currentUser.username,
-            text: text,
-            time: Date.now(),
-            readByAdmin: false,
-            readByUser: true
-        });
-        input.value = "";
+    function renderUserOrders() {
+        if(!currentUser) { document.getElementById("mainContent").innerHTML = '<p>Войдите в аккаунт</p>'; return; }
+        let userOrders = orders.filter(o => o.userId === currentUser.username);
+        let html = `<h2 style="margin-bottom:20px;">📋 Мои заказы</h2>${userOrders.map(o => `<div class="order-card" onclick="showOrderDetail(${JSON.stringify(o).replace(/"/g, '&quot;')})"><div class="flex-between"><b>${getShortId(o.id)}</b> <span class="status-badge status-${o.status}">${o.status}</span></div>📅 ${o.date}<br>💰 ${o.total}₽<br><button class="repeat-order-btn" onclick="event.stopPropagation(); repeatOrderAndGoToCart('${o.id}')">🔄 Повторить заказ</button></div>`).join('') || '<p>У вас пока нет заказов</p>'}`;
+        document.getElementById("mainContent").innerHTML = html;
     }
+    window.updateOrderStatus = (id,st) => { let o=orders.find(o=>o.id===id); if(o) o.status=st; saveAll(); renderAdminPanel(); updateUI(); updateOrderStatusBar(); };
     
-    function loadUserChatMessages() {
-        if (!currentUser) return;
-        const container = document.getElementById("userChatMessages");
-        if (!container) return;
-        subscribeToChat(currentUser.uid, false, (messages) => {
-            container.innerHTML = messages.map(msg => {
-                const isMy = msg.from === currentUser.username;
-                const sender = isMy ? "Вы" : "👑 Администратор";
-                return `<div class="chat-message ${isMy ? 'my' : 'other'}"><div class="message-sender">${sender}</div><div class="message-bubble">${escapeHtml(msg.text)}</div><div class="message-time">${new Date(msg.time).toLocaleString()}</div></div>`;
-            }).join('');
-            container.scrollTop = container.scrollHeight;
-            updateUserChatUnread();
-        });
+    function renderMenu() {
+        let searchHtml = `<div class="search-bar"><input type="text" id="menuSearchInput" placeholder="🔍 Поиск по меню..." oninput="filterMenuDebounced()" value="${menuSearchQuery.replace(/"/g, '&quot;')}" autocomplete="off"></div>`;
+        let tabs = `<div class="categories-tabs">${categories.map(c => `<button class="category-tab ${currentCategory===c?'active':''}" data-category="${c}">${c}</button>`).join('')}</div>`;
+        let filteredByCat = products.filter(p => p.category === currentCategory);
+        let filteredBySearch = filteredByCat.filter(p => p.name.toLowerCase().includes(menuSearchQuery.toLowerCase()));
+        let grid = `<div class="menu-grid">${filteredBySearch.map(p => `<div class="product-card" onclick="openProductDetail('${p.id}')"><div class="product-img" style="background-image: url('${p.image}');"></div><div class="product-info"><div><strong>${p.name}</strong></div><div>${p.variants[0].price}₽</div><button class="btn" onclick="event.stopPropagation(); addToCart('${p.id}')">В корзину</button></div></div>`).join('')}</div>`;
+        if(filteredBySearch.length === 0) grid = '<p style="text-align:center;padding:40px;">😢 Ничего не найдено</p>';
+        document.getElementById("mainContent").innerHTML = searchHtml + tabs + grid;
+        let searchInput = document.getElementById("menuSearchInput");
+        if(searchInput) searchInput.value = menuSearchQuery;
+        document.querySelectorAll(".category-tab").forEach(btn => btn.onclick = () => { currentCategory = btn.dataset.category; renderMenu(); });
     }
-    
-    function updateUserChatUnread() { /* можно реализовать через отдельный слушатель */ }
-    function updateAdminOrderBadge() {}
-    function updateOrderStatusBar() {
-        if (!currentUser || currentUser.isAdmin) return;
-        const activeOrder = orders.find(o => o.userId === currentUser.uid && o.status !== "Доставлен" && o.status !== "Отменён");
-        const bar = document.getElementById("orderStatusBar");
-        if (activeOrder) {
-            bar.innerHTML = activeOrder.status === "Принят" ? "⏳ Ваш заказ принят, скоро начнём готовить!" : "👩‍🍳 Ваш заказ готовится!";
-            bar.className = `order-status-bar ${activeOrder.status}`;
-            bar.style.display = "block";
-        } else bar.style.display = "none";
-    }
-    
-    function closeModal(id) { document.getElementById(id).style.display = "none"; }
-    window.togglePassword = (id) => { let inp = document.getElementById(id); inp.type = inp.type === "password" ? "text" : "password"; };
-    
-    // Инициализация после сплеша
-    document.getElementById("goToShopBtn").addEventListener("click", async () => {
-        let splash = document.getElementById("splashScreen");
-        if (splash) {
-            splash.style.opacity = "0";
-            setTimeout(() => { splash.style.display = "none"; document.getElementById("mainSite").style.display = "block"; initApp(); }, 800);
-        }
-    });
-    
-    async function initApp() {
-        // Проверяем, есть ли сохранённый пользователь
-        const saved = localStorage.getItem("ilimi_current_user");
-        if (saved) {
-            try {
-                const { uid } = JSON.parse(saved);
-                const userDoc = await db.collection("users").doc(uid).get();
-                if (userDoc.exists) {
-                    let data = userDoc.data();
-                    currentUser = {
-                        uid: uid,
-                        username: data.username,
-                        email: data.email,
-                        phone: data.phone,
-                        address: data.address,
-                        avatar: data.avatar,
-                        isAdmin: data.isAdmin || false
-                    };
-                }
-            } catch(e) {}
-        }
-        loadCartFromSession();
-        // Подписки
-        subscribeToProducts();
-        if (currentUser) {
-            subscribeToOrders();
-        }
-        subscribeToReviews();
-        // Навешиваем обработчики UI
-        document.getElementById("floatingCart").onclick = () => renderCartModal();
-        document.getElementById("checkoutBtn").onclick = checkout;
-        document.getElementById("editAddressBtn").onclick = () => {
-            let div = document.getElementById("addressInputDiv");
-            if(div) { div.style.display = "flex"; let inp = document.getElementById("deliveryAddress"); if(inp) inp.value = currentUser?.address || ""; }
-        };
-        document.getElementById("saveAddressBtn").onclick = async () => {
-            let newAddr = document.getElementById("deliveryAddress")?.value.trim();
-            if (newAddr && currentUser) {
-                await db.collection("users").doc(currentUser.uid).update({ address: newAddr });
-                currentUser.address = newAddr;
-                document.getElementById("savedAddress").innerText = newAddr;
-                document.getElementById("addressInputDiv").style.display = "none";
-                alert("Адрес сохранён!");
-            }
-        };
-        document.getElementById("userAreaBtn").onclick = (e) => {
-            if(e.target.closest('#logoutHeaderBtn')) return;
-            if(currentUser) renderUserProfileFull();
-            else document.getElementById("authModal").style.display = "flex";
-        };
-        document.getElementById("logoutHeaderBtn").onclick = (e) => { e.stopPropagation(); logout(); };
-        document.getElementById("homeLink").onclick = () => { currentPage = "menu"; renderPage(); };
-        document.getElementById("profileLink").onclick = () => { if(currentUser) renderUserProfileFull(); else document.getElementById("authModal").style.display = "flex"; };
-        document.getElementById("ordersLink").onclick = () => { if(currentUser) { currentPage = "orders"; renderPage(); } else document.getElementById("authModal").style.display = "flex"; };
-        document.getElementById("reviewsLink").onclick = () => { currentPage = "reviews"; renderPage(); };
-        document.getElementById("doLoginBtn").onclick = () => { let u=document.getElementById("loginUsername").value, p=document.getElementById("loginPassword").value; if(u && p) login(u,p); };
-        document.getElementById("doRegisterBtn").onclick = () => { let u=document.getElementById("regUsername").value, p=document.getElementById("regPassword").value, e=document.getElementById("regEmail").value, ph=document.getElementById("regPhone").value; if(u && p) register(u,p,e,ph); };
-        document.getElementById("forgotPasswordLink").onclick = () => { closeModal('authModal'); document.getElementById("restoreModal").style.display="flex"; };
-        document.getElementById("doRestoreBtn").onclick = async () => {
-            let contact = document.getElementById("restoreContact").value;
-            let userQuery = await db.collection("users").where("email","==",contact).get();
-            if (userQuery.empty) userQuery = await db.collection("users").where("phone","==",contact).get();
-            if (!userQuery.empty) {
-                let user = userQuery.docs[0].data();
-                alert(`Ваш пароль: ${user.password}`);
-                closeModal('restoreModal');
-            } else alert("Не найден");
-        };
-        document.getElementById("loginTab").onclick = () => { document.getElementById("loginForm").style.display="block"; document.getElementById("registerForm").style.display="none"; };
-        document.getElementById("registerTab").onclick = () => { document.getElementById("loginForm").style.display="none"; document.getElementById("registerForm").style.display="block"; };
-        
-        const toggle = document.getElementById("userChatToggle");
-        const windowChat = document.getElementById("userChatWindow");
-        const closeChat = document.getElementById("userChatCloseBtn");
-        const sendBtn = document.getElementById("userSendChatBtn");
-        if (toggle) toggle.onclick = () => { if(windowChat.style.display === "block") windowChat.style.display = "none"; else { windowChat.style.display = "block"; loadUserChatMessages(); } };
-        if (closeChat) closeChat.onclick = () => { windowChat.style.display = "none"; };
-        if (sendBtn) sendBtn.onclick = sendUserMessage;
-        document.getElementById("userChatInput").onkeypress = (e) => { if(e.key === "Enter") sendUserMessage(); };
-        
-        updateUI();
-    }
-    
-    function renderUserProfileFull() {
-        if(!currentUser) return;
-        let modal = document.createElement('div');
-        modal.className = 'fullscreen-modal';
-        modal.innerHTML = `<div class="fullscreen-content"><span class="profile-close-btn" onclick="this.closest('.fullscreen-modal').remove()">&times;</span>
-        <div style="text-align:center;"><img src="${currentUser.avatar || 'https://placehold.co/100x100/f2e6d8/8b5a3c?text=👤'}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;"><input type="file" id="profileAvatarUpload" style="margin-top:10px; font-size:0.8rem;"></div>
-        <div class="profile-card"><h3>👤 Личные данные</h3>
-        <div class="profile-info-row"><span class="profile-info-label">Логин:</span><span class="profile-info-value">${currentUser.username}</span><button class="profile-edit-btn" onclick="editProfileField('username')">✏️</button></div>
-        <div class="profile-info-row"><span class="profile-info-label">Email:</span><span class="profile-info-value">${currentUser.email || '—'}</span><button class="profile-edit-btn" onclick="editProfileField('email')">✏️</button></div>
-        <div class="profile-info-row"><span class="profile-info-label">Телефон:</span><span class="profile-info-value">${currentUser.phone || '—'}</span><button class="profile-edit-btn" onclick="editProfileField('phone')">✏️</button></div>
-        <div class="profile-info-row"><span class="profile-info-label">Адрес:</span><span class="profile-info-value">${currentUser.address || 'Не указан'}</span><button class="profile-edit-btn" onclick="editProfileField('address')">✏️</button></div>
-        <div class="profile-info-row"><span class="profile-info-label">Пароль:</span><span class="profile-info-value">••••••</span><button class="profile-edit-btn" onclick="editProfileField('password')">✏️</button></div>
-        </div></div>`;
-        document.body.appendChild(modal);
-        window.editProfileField = async (field) => {
-            let newVal = prompt(`Введите новый ${field}:`, currentUser[field] || '');
-            if (newVal !== null) {
-                let updateData = {};
-                if (field === 'password') updateData.password = newVal;
-                else updateData[field] = newVal;
-                await db.collection("users").doc(currentUser.uid).update(updateData);
-                if (field !== 'password') currentUser[field] = newVal;
-                else currentUser.password = newVal;
-                modal.remove();
-                renderUserProfileFull();
-                alert(`${field} обновлён`);
-            }
-        };
-        document.getElementById("profileAvatarUpload").onchange = e => { let f=e.target.files[0]; if(f){ let r=new FileReader(); r.onload=async ev=>{ await db.collection("users").doc(currentUser.uid).update({ avatar: ev.target.result }); currentUser.avatar=ev.target.result; modal.remove(); renderUserProfileFull(); }; r.readAsDataURL(f); } };
-    }
-    
     window.filterMenuDebounced = () => {
         if(debounceTimer) clearTimeout(debounceTimer);
         debounceTimer = setTimeout(() => {
@@ -930,8 +486,478 @@
             if(input) { menuSearchQuery = input.value; renderMenu(); }
         }, 300);
     };
-    window.updateOrderStatus = updateOrderStatus;
-    window.updateCartItem = updateCartItem;
+    
+    function openProductDetail(pid) {
+        let p = products.find(p=>p.id===pid);
+        let comments = productComments[pid] || [];
+        let modal = document.createElement('div');
+        modal.className = 'modal';
+        modal.style.display = 'flex';
+        modal.innerHTML = `<div class="modal-content"><span class="modal-close" onclick="this.closest('.modal').remove()">&times;</span><img src="${p.image}" style="width:100%;height:180px;object-fit:cover;border-radius:20px;"><h2>${p.name}</h2><p>💰 ${p.variants[0].price}₽ | 🔥 ${p.calories}</p><p>${p.description}</p><p>🥄 ${p.composition}</p><button class="btn" onclick="addToCart('${p.id}');this.closest('.modal').remove()">В корзину</button><div style="margin-top:20px;"><h3>💬 Комментарии (${comments.length})</h3>${comments.map(c=>`<div style="background:var(--cream); border-radius:16px; padding:12px; margin-bottom:10px;"><b>${c.author}</b> <small>${c.date}</small><div>${c.text}</div>${c.image ? `<img src="${c.image}" style="max-width:120px;border-radius:12px; margin-top:8px;">` : ''}</div>`).join('') || '<p>Нет комментариев</p>'}<textarea id="commentText" placeholder="Ваш комментарий..." rows="2"></textarea><input type="file" id="commentImage"><button class="btn" onclick="addComment('${pid}')">Отправить</button></div></div>`;
+        document.body.appendChild(modal);
+    }
+    window.addComment = (pid) => {
+        let text = document.getElementById("commentText")?.value.trim();
+        if(!text) { alert("Напишите комментарий"); return; }
+        let file = document.getElementById("commentImage")?.files[0];
+        if(!productComments[pid]) productComments[pid] = [];
+        if(file) {
+            let reader = new FileReader();
+            reader.onload = e => { productComments[pid].push({ author: currentUser.username, text, image: e.target.result, date: new Date().toLocaleString() }); saveAll(); document.querySelector('.modal')?.remove(); openProductDetail(pid); alert("Комментарий добавлен!"); };
+            reader.readAsDataURL(file);
+        } else { productComments[pid].push({ author: currentUser.username, text, image: null, date: new Date().toLocaleString() }); saveAll(); document.querySelector('.modal')?.remove(); openProductDetail(pid); alert("Комментарий добавлен!"); }
+    };
+    
+    // Исправленная функция отзывов
+    function renderReviews() {
+        let starsHtml = `<div class="stars" id="reviewStars">${[1,2,3,4,5].map(v => `<span class="star" data-value="${v}">★</span>`).join('')}</div>`;
+        let html = `<div>${reviews.slice().reverse().map(r => `<div class="review-card"><b>${r.author}</b> <small>${r.date}</small><div>${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div><div>${r.text}</div></div>`).join('') || '<p>Нет отзывов</p>'}</div><div style="margin-top:30px;"><h4>Оставить отзыв</h4>${starsHtml}<textarea id="reviewText" rows="3" placeholder="Ваш отзыв..."></textarea><button id="submitReviewBtn" class="btn">Отправить</button></div>`;
+        document.getElementById("mainContent").innerHTML = html;
+        
+        let selectedRating = 0;
+        const starsContainer = document.getElementById("reviewStars");
+        if (starsContainer) {
+            const updateStarsUI = (rating) => {
+                const allStars = starsContainer.querySelectorAll('.star');
+                allStars.forEach(star => {
+                    const val = parseInt(star.dataset.value);
+                    if (val <= rating) star.classList.add('active');
+                    else star.classList.remove('active');
+                });
+            };
+            starsContainer.addEventListener('click', (e) => {
+                const star = e.target.closest('.star');
+                if (star) {
+                    selectedRating = parseInt(star.dataset.value);
+                    updateStarsUI(selectedRating);
+                }
+            });
+            updateStarsUI(0);
+        }
+        
+        document.getElementById("submitReviewBtn").onclick = () => {
+            if (!currentUser) alert("Войдите в аккаунт");
+            else if (currentUser.isAdmin) alert("Администратор не может оставлять отзывы");
+            else if (!selectedRating) alert("Поставьте оценку (выберите звёзды)");
+            else {
+                let text = document.getElementById("reviewText").value.trim();
+                if (text) {
+                    reviews.push({ author: currentUser.username, rating: selectedRating, text: text, date: new Date().toLocaleString() });
+                    saveAll();
+                    renderReviews();
+                    alert("Спасибо за отзыв!");
+                } else alert("Напишите текст отзыва");
+            }
+        };
+    }
+    
+    function renderUserProfileFull() {
+        if(!currentUser) { document.getElementById("mainContent").innerHTML = '<p>Войдите в аккаунт</p>'; return; }
+        let modal = document.createElement('div');
+        modal.className = 'fullscreen-modal';
+        modal.innerHTML = `<div class="fullscreen-content"><span class="profile-close-btn" onclick="this.closest('.fullscreen-modal').remove()">&times;</span><div style="text-align:center;"><img src="${currentUser.avatar || 'https://placehold.co/100x100/f2e6d8/8b5a3c?text=👤'}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;"><input type="file" id="profileAvatarUpload" style="margin-top:10px; font-size:0.8rem;"></div>
+        <div class="profile-card"><h3>👤 Личные данные</h3>
+        <div class="profile-info-row"><span class="profile-info-label">Логин:</span><span class="profile-info-value">${currentUser.username}</span></div>
+        <div class="profile-info-row"><span class="profile-info-label">Email:</span><span class="profile-info-value">${currentUser.email || '—'}</span></div>
+        <div class="profile-info-row"><span class="profile-info-label">Телефон:</span><span class="profile-info-value">${currentUser.phone || '—'}</span></div>
+        <div class="profile-info-row"><span class="profile-info-label">Адрес:</span><span class="profile-info-value" id="profileAddressDisplay">${currentUser.address || 'Не указан'}</span><button id="editProfileAddressBtn" class="profile-edit-btn">✏️</button></div>
+        <div id="profileAddressEdit" style="display:none; margin-top:12px;"><input type="text" id="profileAddressInput" value="${currentUser.address || ''}" placeholder="Улица, дом, квартира"><button id="saveProfileAddressBtn" class="btn" style="width:auto;padding:8px 20px;">Сохранить</button></div>
+        </div></div>`;
+        document.body.appendChild(modal);
+        document.getElementById("profileAvatarUpload").onchange = e => { let f=e.target.files[0]; if(f){ let r=new FileReader(); r.onload=ev=>{ currentUser.avatar=ev.target.result; const users=getUsersDB(); const idx=users.findIndex(u=>u.username===currentUser.username); if(idx!==-1) users[idx].avatar=ev.target.result; saveUsersDB(users); saveAll(); updateUI(); modal.remove(); renderUserProfileFull(); }; r.readAsDataURL(f); } };
+        document.getElementById("editProfileAddressBtn").onclick = () => { document.getElementById("profileAddressDisplay").style.display="none"; document.getElementById("profileAddressEdit").style.display="block"; };
+        document.getElementById("saveProfileAddressBtn").onclick = () => { let newAddr=document.getElementById("profileAddressInput").value.trim(); if(newAddr){ currentUser.address=newAddr; const users=getUsersDB(); const idx=users.findIndex(u=>u.username===currentUser.username); if(idx!==-1) users[idx].address=newAddr; saveUsersDB(users); saveAll(); document.getElementById("profileAddressDisplay").innerText=newAddr; document.getElementById("profileAddressDisplay").style.display="inline-block"; document.getElementById("profileAddressEdit").style.display="none"; alert("Адрес сохранён!"); } };
+    }
+    
+    function renderAdminPanel() {
+        const main = document.getElementById("mainContent");
+        if(currentAdminTab === "orders") {
+            let activeOrders = orders.filter(o => o.status !== "Доставлен" && o.status !== "Отменён");
+            let completedOrders = orders.filter(o => o.status === "Доставлен" || o.status === "Отменён");
+            let displayOrders = currentOrderFilter === "active" ? activeOrders : completedOrders;
+            main.innerHTML = `<div class="admin-panel-container"><div class="orders-layout"><div class="orders-sidebar"><button class="order-side-btn ${currentOrderFilter === 'active' ? 'active' : ''}" onclick="currentOrderFilter='active'; renderAdminPanel();">🟡 Активные (${activeOrders.length})</button><button class="order-side-btn ${currentOrderFilter === 'completed' ? 'active' : ''}" onclick="currentOrderFilter='completed'; renderAdminPanel();">✅ Выполненные (${completedOrders.length})</button></div><div class="orders-content"><div class="orders-table-container"><table class="orders-table"><thead><tr><th>№</th><th>Клиент</th><th>Дата</th><th>Товары</th><th>Сумма</th><th>Статус</th><th>Действие</th><th>Чат</th></tr></thead><tbody>${displayOrders.map(o => `<tr><td class="clickable-order" onclick="showOrderDetail(${JSON.stringify(o).replace(/"/g, '&quot;')})">${getShortId(o.id)}</td><td>${o.userId}</td><td>${o.date}</td><td>${o.items.map(i=>`${i.name} x${i.quantity}`).join(', ')}</td><td><b>${o.total}₽</b></td><td><span class="status-badge status-${o.status}">${o.status}</span></td><td><select onchange="updateOrderStatus('${o.id}',this.value)"><option ${o.status==='Принят'?'selected':''}>Принят</option><option ${o.status==='Готовится'?'selected':''}>Готовится</option><option ${o.status==='Доставлен'?'selected':''}>Доставлен</option><option ${o.status==='Отменён'?'selected':''}>Отменён</option></select></td><td><button class="chat-link-btn" onclick="openChatWithUser('${o.userId}')"><i class="fas fa-comment"></i> Чат</button></td></tr>`).join('')}</tbody></td>${displayOrders.length === 0 ? '<p style="text-align:center;padding:30px;">Нет заказов</p>' : ''}</div></div></div></div>`;
+        } else if(currentAdminTab === "products") {
+            main.innerHTML = `<div class="admin-panel-container"><div class="admin-tabs"><button id="addProductTabBtn" class="admin-tab-btn ${currentProductsSubTab === 'add' ? 'active' : ''}">➕ Добавление</button><button id="editProductTabBtn" class="admin-tab-btn ${currentProductsSubTab === 'edit' ? 'active' : ''}">✏️ Редактирование</button></div>
+            <div id="addProductSection" class="admin-section ${currentProductsSubTab === 'add' ? 'active' : ''}"><div style="background:var(--rose); padding:16px; border-radius:24px;"><h4>➕ Новое блюдо</h4><select id="adminCategory">${categories.map(c=>`<option>${c}</option>`).join('')}</select><input type="text" id="adminName" placeholder="Название"><textarea id="adminDesc" placeholder="Описание" rows="2"></textarea><input type="text" id="adminComposition" placeholder="Состав"><input type="text" id="adminCalories" placeholder="Калории"><input type="text" id="adminPriceDefault" placeholder="Цена"><input type="file" id="adminImageFile" accept="image/*"><div id="imagePreview"></div><button id="addProductBtn" class="btn">✅ Добавить</button></div></div>
+            <div id="editProductSection" class="admin-section ${currentProductsSubTab === 'edit' ? 'active' : ''}"><h4>✏️ Редактирование товаров</h4><div id="adminProductList"></div></div></div>`;
+            document.getElementById("addProductTabBtn").onclick = () => { currentProductsSubTab = "add"; renderAdminPanel(); };
+            document.getElementById("editProductTabBtn").onclick = () => { currentProductsSubTab = "edit"; renderAdminPanel(); };
+            document.getElementById("adminProductList").innerHTML = products.map(p => `<div class="product-edit-card"><div class="flex-between"><img src="${p.image}" style="width:50px;height:50px;border-radius:10px;object-fit:cover;"><div><strong>${p.name}</strong><br>${p.variants[0].price}₽</div><button onclick="editProduct('${p.id}')" class="btn" style="width:auto;padding:6px 14px;">✏️</button><button onclick="deleteProduct('${p.id}')" class="btn" style="width:auto;padding:6px 14px;background:#999;">🗑️</button></div></div>`).join('');
+            let uploaded = null;
+            const imageInput = document.getElementById("adminImageFile");
+            if(imageInput) imageInput.onchange = e => { let f=e.target.files[0]; if(f){ let r=new FileReader(); r.onload=ev=>{ uploaded=ev.target.result; document.getElementById("imagePreview").innerHTML = `<img src="${uploaded}" style="max-width:150px;border-radius:12px; margin-top:8px;">`; }; r.readAsDataURL(f); } };
+            const addBtn = document.getElementById("addProductBtn");
+            if(addBtn) addBtn.onclick = () => { let name = document.getElementById("adminName")?.value.trim(); if(!name || !uploaded){ alert("Название и фото обязательны"); return; } products.push({ id:"id_"+Date.now(), name, category:document.getElementById("adminCategory")?.value, description:document.getElementById("adminDesc")?.value, composition:document.getElementById("adminComposition")?.value, calories:document.getElementById("adminCalories")?.value, variants:[{weight:"стандарт",price:parseInt(document.getElementById("adminPriceDefault")?.value)||250}], image:uploaded }); saveAll(); renderAdminPanel(); alert("Добавлено!"); };
+        } else if(currentAdminTab === "chats") {
+            renderChatsPanel(main);
+        }
+    }
+    window.editProduct = (id) => {
+        let p = products.find(p=>p.id===id);
+        let newName = prompt("Новое название:", p.name);
+        if(newName) p.name = newName;
+        let newPrice = prompt("Новая цена:", p.variants[0].price);
+        if(newPrice) p.variants[0].price = parseInt(newPrice);
+        let newDesc = prompt("Новое описание:", p.description);
+        if(newDesc !== null) p.description = newDesc;
+        let newCat = prompt("Новая категория ("+categories.join(", ")+"):", p.category);
+        if(newCat && categories.includes(newCat)) p.category = newCat;
+        let newComposition = prompt("Новый состав:", p.composition);
+        if(newComposition !== null) p.composition = newComposition;
+        let newCalories = prompt("Калории:", p.calories);
+        if(newCalories !== null) p.calories = newCalories;
+        let newImage = prompt("URL нового фото:", "");
+        if(newImage && newImage.trim()) p.image = newImage;
+        saveAll(); renderAdminPanel(); alert("Товар обновлен!");
+    };
+    window.deleteProduct = (id) => { if(confirm("Удалить?")) { products=products.filter(p=>p.id!==id); saveAll(); renderAdminPanel(); } };
+    
+    window.openChatWithUser = (username) => { currentAdminTab = "chats"; currentChatUser = username; updateUI(); };
+    function deleteUserFromChats(username) {
+        if(confirm(`Удалить чат с ${username}?`)) { delete privateMessages[username]; saveAll(); if(currentChatUser === username) currentChatUser = null; renderAdminPanel(); alert(`Чат с ${username} удалён`); }
+    }
+    function clearChat(username) {
+        if(confirm(`Очистить чат с ${username}?`)) { delete privateMessages[username]; saveAll(); if(currentChatUser === username) currentChatUser = null; renderAdminPanel(); alert("Чат очищен"); }
+    }
+    function startNewChatWithUser(username) { if(!privateMessages[username]) privateMessages[username] = []; currentChatUser = username; renderAdminPanel(); }
+    function selectChatUser(username) { currentChatUser = username; renderAdminPanel(); markMessagesAsRead(username, true); }
+    
+    // Исправленная отправка сообщения админом – без пересоздания всей панели
+    function sendAdminMessage(username) {
+        let input = document.getElementById("adminChatInput");
+        let text = input?.value.trim();
+        if(!text) return;
+        if(!privateMessages[username]) privateMessages[username] = [];
+        let newMsg = { from: "ilimi_admin", text: text, date: new Date().toLocaleString(), time: Date.now(), readByUser: false, readByAdmin: true };
+        privateMessages[username].push(newMsg);
+        saveAll();
+        // Добавляем сообщение в контейнер, не перерисовывая всё
+        let container = document.getElementById("adminChatMessagesList");
+        if(container) {
+            let msgDiv = document.createElement('div');
+            msgDiv.className = 'chat-message admin';
+            msgDiv.innerHTML = `<div class="message-sender">👑 Администратор</div><div class="message-bubble">${escapeHtml(text)}</div><div class="message-time">${newMsg.date}</div></div>`;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+        // Обновляем список чатов (последнее сообщение)
+        updateChatListOnly();
+        // Очищаем поле и возвращаем фокус
+        input.value = "";
+        input.focus();
+        updateUserChatUnread();
+    }
+    
+    function updateChatListOnly() {
+        const usersContainer = document.getElementById("usersListContainer");
+        if(!usersContainer) return;
+        const allUsers = getUsersDB().filter(u => !u.isAdmin);
+        let chatUsers = allUsers.filter(u => privateMessages[u.username] && privateMessages[u.username].length > 0);
+        let html = "";
+        if(chatUsers.length === 0) {
+            html = `<div style="padding:20px;text-align:center;color:#999;">Нет активных чатов. Начните диалог через поиск</div>`;
+        } else {
+            for(let user of chatUsers) {
+                let msgs = privateMessages[user.username] || [];
+                let lastMsg = msgs[msgs.length-1];
+                let lastRead = messageReadStatus[`${user.username}_admin_read`] || 0;
+                let unread = msgs.filter(m => m.from !== "ilimi_admin" && m.time > lastRead).length;
+                let activeClass = (currentChatUser === user.username) ? 'active' : '';
+                html += `<div class="chat-list-item ${activeClass}" onclick="selectChatUser('${user.username}')"><div><div class="chat-user-name">${user.username}</div><div class="chat-last-msg">${lastMsg ? (lastMsg.text.length > 30 ? lastMsg.text.substring(0,30)+'...' : lastMsg.text) : 'Нет сообщений'}</div></div><div style="display:flex; gap:8px;">${unread > 0 ? `<span style="background:#e74c3c; color:white; border-radius:50%; min-width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">${unread}</span>` : ''}<button class="delete-user-btn" onclick="event.stopPropagation(); deleteUserFromChats('${user.username}')"><i class="fas fa-trash-alt"></i></button></div></div>`;
+            }
+        }
+        usersContainer.innerHTML = html;
+    }
+    
+    function sendUserMessage() {
+        if(!currentUser || currentUser.isAdmin) { alert("Войдите в аккаунт"); document.getElementById("authModal").style.display = "flex"; return; }
+        let input = document.getElementById("userChatInput");
+        let text = input?.value.trim();
+        if(!text) return;
+        if(!privateMessages[currentUser.username]) privateMessages[currentUser.username] = [];
+        let newMsg = { from: currentUser.username, text: text, date: new Date().toLocaleString(), time: Date.now(), readByAdmin: false, readByUser: true };
+        privateMessages[currentUser.username].push(newMsg);
+        saveAll();
+        let container = document.getElementById("userChatMessages");
+        if(container) {
+            let msgDiv = document.createElement('div');
+            msgDiv.className = 'message-item user';
+            msgDiv.innerHTML = `<div class="message-sender">Вы</div><div class="message-bubble">${escapeHtml(text)}</div><div class="message-time">${newMsg.date}</div></div>`;
+            container.appendChild(msgDiv);
+            container.scrollTop = container.scrollHeight;
+        }
+        input.value = "";
+        input.focus();
+        updateUI();
+        updateAdminChatIndicator();
+    }
+    
+    function loadUserChatMessages() {
+        if(!currentUser || currentUser.isAdmin) return;
+        markMessagesAsRead(currentUser.username, false);
+        let msgs = privateMessages[currentUser.username] || [];
+        let container = document.getElementById("userChatMessages");
+        if(!container) return;
+        if(msgs.length === 0) { container.innerHTML = '<div style="text-align:center; color:#999; padding:20px;">Напишите администратору, и он ответит</div>'; return; }
+        container.innerHTML = msgs.map(m => {
+            let isAdmin = m.from === "ilimi_admin";
+            let senderName = isAdmin ? "👑 Администратор" : "Вы";
+            let isRead = !isAdmin ? (m.readByAdmin === true) : (m.readByUser === true);
+            return `<div class="message-item ${isAdmin ? 'admin' : 'user'}">
+                        <div class="message-sender">${senderName}</div>
+                        <div class="message-bubble">${escapeHtml(m.text)}</div>
+                        <div class="message-time">${m.date} ${isRead ? '<span class="message-read-status">✓ прочитано</span>' : ''}</div>
+                    </div>`;
+        }).join('');
+        container.scrollTop = container.scrollHeight;
+        updateUserChatUnread();
+    }
+    
+    function renderChatsPanel(main) {
+        const allUsers = getUsersDB().filter(u => !u.isAdmin);
+        let chatUsers = allUsers.filter(u => privateMessages[u.username] && privateMessages[u.username].length > 0);
+        let chatListHtml = `<div class="chats-list"><div class="search-user"><input type="text" id="userSearchInput" placeholder="🔍 Поиск..." oninput="filterUsersForChat()"></div><div id="usersListContainer">`;
+        if(chatUsers.length === 0) chatListHtml += `<div style="padding:20px;text-align:center;color:#999;">Нет активных чатов. Начните диалог через поиск</div>`;
+        for(let user of chatUsers) {
+            let msgs = privateMessages[user.username] || [];
+            let lastMsg = msgs[msgs.length-1];
+            let lastRead = messageReadStatus[`${user.username}_admin_read`] || 0;
+            let unread = msgs.filter(m => m.from !== "ilimi_admin" && m.time > lastRead).length;
+            chatListHtml += `<div class="chat-list-item ${currentChatUser === user.username ? 'active' : ''}" onclick="selectChatUser('${user.username}')"><div><div class="chat-user-name">${user.username}</div><div class="chat-last-msg">${lastMsg ? (lastMsg.text.length > 30 ? lastMsg.text.substring(0,30)+'...' : lastMsg.text) : 'Нет сообщений'}</div></div><div style="display:flex; gap:8px;">${unread > 0 ? `<span style="background:#e74c3c; color:white; border-radius:50%; min-width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">${unread}</span>` : ''}<button class="delete-user-btn" onclick="event.stopPropagation(); deleteUserFromChats('${user.username}')"><i class="fas fa-trash-alt"></i></button></div></div>`;
+        }
+        chatListHtml += `</div></div>`;
+        
+        let currentMessages = currentChatUser ? (privateMessages[currentChatUser] || []) : [];
+        let messagesHtml = `<div class="chat-messages-list" id="adminChatMessagesList">`;
+        for(let msg of currentMessages) {
+            let isAdmin = msg.from === "ilimi_admin";
+            let senderName = isAdmin ? "👑 Администратор" : currentChatUser;
+            let isRead = isAdmin ? (msg.readByUser === true) : (msg.readByAdmin === true);
+            messagesHtml += `<div class="chat-message ${isAdmin ? 'admin' : 'user'}">
+                                <div class="message-sender">${senderName}</div>
+                                <div class="message-bubble">${escapeHtml(msg.text)}</div>
+                                <div class="message-time">${msg.date} ${isRead ? '<span class="message-read-status">✓ прочитано</span>' : ''}</div>
+                             </div>`;
+        }
+        if(currentMessages.length === 0 && currentChatUser) messagesHtml += `<div style="text-align:center;color:#999;padding:40px;">Нет сообщений.</div>`;
+        messagesHtml += `</div><div class="chat-input-area-admin"><input type="text" id="adminChatInput" placeholder="Введите сообщение..."><button id="sendAdminChatBtn" class="btn">📤 Отправить</button></div>`;
+        
+        main.innerHTML = `<div class="admin-panel-container"><h2 style="margin-bottom:15px;"><i class="fas fa-comments"></i> Чаты с клиентами</h2><div class="chats-layout">${chatListHtml}<div class="chat-messages-area"><div class="chat-messages-header"><span>${currentChatUser ? `Чат с ${currentChatUser}` : 'Выберите пользователя'}</span>${currentChatUser ? `<button class="chat-clear-btn" onclick="clearChat('${currentChatUser}')"><i class="fas fa-trash-alt"></i> Очистить</button>` : ''}</div>${currentChatUser ? messagesHtml : '<div style="padding:40px;text-align:center;">Выберите пользователя из списка</div>'}</div></div></div>`;
+        
+        if(currentChatUser) {
+            markMessagesAsRead(currentChatUser, true);
+            setTimeout(() => { let cont = document.getElementById("adminChatMessagesList"); if(cont) cont.scrollTop = cont.scrollHeight; }, 100);
+            const sendBtn = document.getElementById("sendAdminChatBtn");
+            const inp = document.getElementById("adminChatInput");
+            if(sendBtn) {
+                let newBtn = sendBtn.cloneNode(true);
+                sendBtn.parentNode.replaceChild(newBtn, sendBtn);
+                newBtn.onclick = () => sendAdminMessage(currentChatUser);
+            }
+            if(inp) {
+                inp.onkeypress = (e) => { if(e.key === 'Enter') sendAdminMessage(currentChatUser); };
+                inp.focus();
+            }
+        }
+    }
+    
+    window.filterUsersForChat = () => {
+        let query = document.getElementById("userSearchInput")?.value.toLowerCase() || "";
+        const allUsers = getUsersDB().filter(u => !u.isAdmin);
+        let chatUsers = allUsers.filter(u => privateMessages[u.username] && privateMessages[u.username].length > 0);
+        let filtered = allUsers.filter(u => u.username.toLowerCase().includes(query));
+        let container = document.getElementById("usersListContainer");
+        if(container) {
+            let html = "";
+            if(query.length > 0) {
+                for(let user of filtered) {
+                    let hasChat = chatUsers.includes(user);
+                    html += `<div class="chat-list-item" onclick="${hasChat ? `selectChatUser('${user.username}')` : `startNewChatWithUser('${user.username}')`}"><div><div class="chat-user-name">${user.username}</div><div class="chat-last-msg">${hasChat ? 'Есть история' : 'Новый диалог'}</div></div><button class="delete-user-btn" onclick="event.stopPropagation(); ${hasChat ? `deleteUserFromChats('${user.username}')` : `startNewChatWithUser('${user.username}')`}"><i class="fas ${hasChat ? 'fa-trash-alt' : 'fa-comment-plus'}"></i></button></div>`;
+                }
+            } else {
+                for(let user of chatUsers) {
+                    let msgs = privateMessages[user.username] || [];
+                    let lastMsg = msgs[msgs.length-1];
+                    let lastRead = messageReadStatus[`${user.username}_admin_read`] || 0;
+                    let unread = msgs.filter(m => m.from !== "ilimi_admin" && m.time > lastRead).length;
+                    html += `<div class="chat-list-item ${currentChatUser === user.username ? 'active' : ''}" onclick="selectChatUser('${user.username}')"><div><div class="chat-user-name">${user.username}</div><div class="chat-last-msg">${lastMsg ? (lastMsg.text.length > 30 ? lastMsg.text.substring(0,30)+'...' : lastMsg.text) : 'Нет сообщений'}</div></div><div style="display:flex; gap:8px;">${unread > 0 ? `<span style="background:#e74c3c; color:white; border-radius:50%; min-width:20px; height:20px; display:inline-flex; align-items:center; justify-content:center; font-size:0.65rem;">${unread}</span>` : ''}<button class="delete-user-btn" onclick="event.stopPropagation(); deleteUserFromChats('${user.username}')"><i class="fas fa-trash-alt"></i></button></div></div>`;
+                }
+                if(chatUsers.length === 0) html = `<div style="padding:20px;text-align:center;color:#999;">Нет активных чатов. Используйте поиск</div>`;
+            }
+            container.innerHTML = html;
+        }
+    };
+    
+    function markOrdersAsViewed() {
+        orders.forEach(o => { if(o.status !== "Доставлен" && o.status !== "Отменён") o.viewed = true; });
+        saveAll();
+        updateUI();
+    }
+    
+    function updateUI() {
+        const navLinks = document.getElementById("navLinks");
+        const floatingCart = document.getElementById("floatingCart");
+        const userChatWidget = document.getElementById("userChatWidget");
+        const adminNavContainer = document.getElementById("adminNavContainer");
+        
+        document.getElementById("userNameDisplay").innerText = currentUser ? currentUser.username : "Войти";
+        document.getElementById("userAvatar").src = currentUser?.avatar || "https://placehold.co/100x100/f2e6d8/8b5a3c?text=👤";
+        
+        if(currentUser?.isAdmin) {
+            adminNavContainer.style.display = "block";
+            let activeOrdersCount = orders.filter(o => o.status !== "Доставлен" && o.status !== "Отменён").length;
+            let newOrders = orders.filter(o => (o.status === "Принят" || o.status === "Готовится") && !o.viewed).length;
+            let unreadChats = getUnreadChatsCount();
+            const adminNav = document.getElementById("adminNavButtons");
+            adminNav.innerHTML = `<button class="admin-nav-btn ${currentAdminTab === 'orders' ? 'active' : ''} ${newOrders > 0 ? 'has-new-order' : ''}" data-tab="orders"><i class="fas fa-truck-fast"></i> ЗАКАЗЫ (${activeOrdersCount})</button><button class="admin-nav-btn ${currentAdminTab === 'products' ? 'active' : ''}" data-tab="products"><i class="fas fa-cake-candles"></i> ТОВАРЫ</button><button class="admin-nav-btn ${currentAdminTab === 'chats' ? 'active' : ''} ${unreadChats > 0 ? 'has-new-message' : ''}" data-tab="chats"><i class="fas fa-comments"></i> ЧАТЫ${unreadChats > 0 ? ` (${unreadChats})` : ''}</button>`;
+            document.querySelectorAll(".admin-nav-btn").forEach(btn => {
+                btn.onclick = () => { 
+                    if(btn.dataset.tab === "orders") markOrdersAsViewed();
+                    currentAdminTab = btn.dataset.tab; 
+                    updateUI(); 
+                    renderAdminPanel(); 
+                };
+            });
+            if(navLinks) navLinks.style.display = "none";
+            floatingCart.style.display = "none";
+            if(userChatWidget) userChatWidget.style.display = "none";
+            renderAdminPanel();
+        } else {
+            adminNavContainer.style.display = "none";
+            if(navLinks) navLinks.style.display = "flex";
+            floatingCart.style.display = currentUser ? "flex" : "none";
+            if(userChatWidget) userChatWidget.style.display = currentUser ? "block" : "none";
+            renderPage();
+            if(currentUser) { updateUserChatUnread(); updateUserChatButtonIndicator(); }
+        }
+        updateCartCount();
+        if(document.querySelectorAll(".nav-links a").length) document.querySelectorAll(".nav-links a").forEach(link => link.classList.toggle("active", link.dataset.page === currentPage));
+    }
+    
+    function renderPage() {
+        if(currentPage === "menu") renderMenu();
+        else if(currentPage === "orders") renderUserOrders();
+        else if(currentPage === "reviews") renderReviews();
+    }
+    
+    function login(login,pass) {
+        const user=findUserByCredentials(login,pass);
+        if(user){
+            addSavedUser(login, pass);
+            currentUser={...user};
+            saveAll();
+            closeModal('authModal');
+            menuSearchQuery = "";
+            updateUI();
+            updateOrderStatusBar();
+            return true;
+        }
+        alert("Неверный логин/пароль");
+        return false;
+    }
+    
+    function logout() { 
+        currentUser=null; 
+        saveAll(); 
+        cart=[]; 
+        saveAll(); 
+        menuSearchQuery = "";
+        updateUI(); 
+        updateOrderStatusBar();
+        alert("Вы вышли"); 
+        location.reload();
+    }
+    
+    function closeModal(id) { document.getElementById(id).style.display="none"; }
+    window.togglePassword = (id) => { let input = document.getElementById(id); input.type = input.type === "password" ? "text" : "password"; };
+    
+    function initMain() {
+        loadData(); updateUI();
+        document.getElementById("floatingCart").onclick = renderCartModal;
+        document.getElementById("checkoutBtn").onclick = checkout;
+        document.getElementById("editAddressBtn").onclick = () => {
+            let div = document.getElementById("addressInputDiv");
+            if(div) { div.style.display = "flex"; let inp = document.getElementById("deliveryAddress"); if(inp) inp.value = currentUser?.address || ""; }
+        };
+        document.getElementById("saveAddressBtn").onclick = () => {
+            let newAddr = document.getElementById("deliveryAddress")?.value.trim();
+            if(newAddr && currentUser){
+                currentUser.address = newAddr;
+                const users = getUsersDB();
+                const idx = users.findIndex(u => u.username === currentUser.username);
+                if(idx !== -1) users[idx].address = newAddr;
+                saveUsersDB(users);
+                saveAll();
+                let span = document.getElementById("savedAddress");
+                if(span) span.innerText = newAddr;
+                document.getElementById("addressInputDiv").style.display = "none";
+                alert("Адрес сохранён!");
+            }
+        };
+        
+        let userArea = document.getElementById("userAreaBtn");
+        if(userArea) userArea.onclick = (e) => {
+            if(e.target.closest('#logoutHeaderBtn')) return;
+            if(currentUser) { 
+                renderUserProfileFull(); 
+            } else {
+                document.getElementById("authModal").style.display = "flex";
+            }
+        };
+        
+        document.getElementById("logoutHeaderBtn").onclick = (e) => { e.stopPropagation(); logout(); };
+        document.getElementById("homeLink").onclick = () => { currentPage="menu"; renderPage(); };
+        
+        document.getElementById("profileLink").onclick = () => { 
+            if(currentUser) { 
+                renderUserProfileFull(); 
+            } else { 
+                document.getElementById("authModal").style.display="flex"; 
+            } 
+        };
+        
+        document.getElementById("ordersLink").onclick = () => { if(currentUser) { currentPage="orders"; renderPage(); } else document.getElementById("authModal").style.display="flex"; };
+        document.getElementById("reviewsLink").onclick = () => { currentPage="reviews"; renderPage(); };
+        document.getElementById("doLoginBtn").onclick = () => { let u=document.getElementById("loginUsername")?.value, p=document.getElementById("loginPassword")?.value; if(u && p) login(u,p); };
+        document.getElementById("doRegisterBtn").onclick = () => { let u=document.getElementById("regUsername")?.value, p=document.getElementById("regPassword")?.value, e=document.getElementById("regEmail")?.value, ph=document.getElementById("regPhone")?.value; if(registerUser(u,p,e,ph)) { closeModal('authModal'); alert("Регистрация успешна!"); } };
+        document.getElementById("forgotPasswordLink").onclick = () => { closeModal('authModal'); document.getElementById("restoreModal").style.display="flex"; };
+        document.getElementById("doRestoreBtn").onclick = () => { let contact=document.getElementById("restoreContact")?.value; let user=findUserByContact(contact); if(user){ alert(`Пароль: ${user.password}`); closeModal('restoreModal'); } else alert("Не найден"); };
+        document.getElementById("loginTab").onclick = () => { document.getElementById("loginForm").style.display="block"; document.getElementById("registerForm").style.display="none"; };
+        document.getElementById("registerTab").onclick = () => { document.getElementById("loginForm").style.display="none"; document.getElementById("registerForm").style.display="block"; };
+        
+        function renderSavedAccounts() {
+            let saved = getSavedUsers();
+            let container = document.getElementById("savedAccountsList");
+            if(container && saved.length) container.innerHTML = saved.map(u => `<button class="saved-account-btn" onclick="login('${u.username}','${u.password}')">👤 ${u.username}</button>`).join('');
+        }
+        renderSavedAccounts();
+        
+        const toggle = document.getElementById("userChatToggle");
+        const windowChat = document.getElementById("userChatWindow");
+        const closeChat = document.getElementById("userChatCloseBtn");
+        const sendBtn = document.getElementById("userSendChatBtn");
+        const inputChat = document.getElementById("userChatInput");
+        if(toggle) toggle.onclick = () => { if(windowChat.style.display === "block") windowChat.style.display = "none"; else { windowChat.style.display = "block"; loadUserChatMessages(); updateUserChatUnread(); if(inputChat) inputChat.focus(); } };
+        if(closeChat) closeChat.onclick = () => { windowChat.style.display = "none"; };
+        if(sendBtn) sendBtn.onclick = sendUserMessage;
+        if(inputChat) inputChat.onkeypress = (e) => { if(e.key === 'Enter') sendUserMessage(); };
+        
+        setInterval(() => {
+            if(currentUser) {
+                if(currentUser.isAdmin) { updateAdminChatIndicator(); if(currentAdminTab === 'chats') renderAdminPanel(); }
+                else { updateUserChatUnread(); if(windowChat && windowChat.style.display === "block") loadUserChatMessages(); }
+                updateOrderStatusBar();
+            }
+        }, 5000);
+    }
+    
+    document.getElementById("goToShopBtn").addEventListener("click", function() {
+        let splash = document.getElementById("splashScreen");
+        if(splash) {
+            splash.style.opacity = "0";
+            setTimeout(() => { splash.style.display = "none"; document.getElementById("mainSite").style.display = "block"; initMain(); }, 800);
+        }
+    });
 </script>
 <footer><p>ilimi — домашняя кондитерская | Админ: ilimi_admin / ilimi2024</p></footer>
 </body>
